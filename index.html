@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var currentMode = body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', currentMode ? 'enabled' : 'disabled');
+        }
+
+        function applySavedTheme() {
+            var savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+            }
+        }
+    </script>
+   
+</head>
+<body onload="applySavedTheme();">
+    <div class="page">
+        <div class="header">
+            <div class="right">
+                <p>
+                    <strong>
+                        <a href="javascript:void(0);" onclick="toggleDarkMode()">
+                            <img src="assets/images/contrast-outline.svg" alt="Toggle Dark/Light Mode">
+                        </a>
+                    </strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="nav">
+            <nav>
+                <a href="javascript:void(0);" onclick="loadContent('./pages/home.html')">Home</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./about.html')">About</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./scope.html')">Scope</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./milestones.html')">Milestones</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./tasks.html')">Tasks</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./documentation.html')">Documentation</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./pages/presentations.html')">Presentations</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./team.html')">Team</a> |
+                <a href="javascript:void(0);" onclick="loadContent('./contact.html')">Contact</a>
+            </nav>
+        </div>
+
+        <div class="content">
+            <iframe id="contentFrame" frameborder="0" src="./home.html"></iframe>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Data-Privacy Focused Federated Learning Framework for Industrial IoT</p>
+        </div>
+    </div>
+
+    <script>
+        function loadContent(page) {
+            var contentFrame = document.getElementById('contentFrame');
+            contentFrame.src = page;
+        }
+    </script>
+</body>
+</html>

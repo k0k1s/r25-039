@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
+
+body, html {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for dark mode */
+    position: relative; /* Required for pseudo-element positioning */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Ensure the background stays fixed during scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Img/page.jpg'); /* You can replace this with a relevant IoT or security-themed image */
+    background-size: cover; /* Make the background image cover the entire page */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    opacity: 0.4; /* Adjust the opacity of the background image */
+    z-index: -1; /* Place the background image behind all other content */
+}
+
+.page {
+    background-color: #c1c1c1;
+    background-position: 35%;
+    padding: 0 10%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    flex: 1;
+    text-align: left;
+}
+
+.title h1 {
+    font-size: 60px; /* Increased font size */
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #777;
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.middle {
+    flex: 2;
+    text-align: center;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right p {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.nav {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ec3737;
+    padding: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #000;
+}
+
+.content {
+    text-align: center;
+}
+
+.content iframe {
+    width: 100%;
+    height: 1000px;
+    border: none;
+}
+
+.footer {
+    text-align: center;
+    border-top: 1px solid #c1c1c1;
+    padding: 10px 0;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #666;
+}
+
+img {
+    height: 24px;
+    width: 24px;
+    margin: 0 5px;
+    transition: filter 0.3s ease; /* Smooth image transitions for dark mode */
+}
+
+.normal-container-name {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.normal-container-name-item {
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #c1c1c1;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.normal-container-name-item p {
+    margin: 0;
+}
+
+.normal-container-name-item a {
+    text-decoration: none;
+    font-style: italic;
+    color: rgb(0, 131, 24);
+    transition: color 0.3s ease;
+}
+
+.normal-container-name-item a:hover {
+    color: red;
+}
+
+.image-class {
+    width: 60%;
+    height: auto;
+    border: 2px solid #c1c1c1;
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .normal-container-name {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .left, .right {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .nav a {
+        display: inline-block;
+        padding: 10px;
+    }
+    
+    .content iframe {
+        height: 500px;
+    }
+
+    .normal-container-name-item {
+        font-size: 14px;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .page {
+    background-color: #1e1e1e;
+    background-image: none; /* Optionally disable background image in dark mode */
+}
+
+.dark-mode .nav a {
+    color: #0e9000;
+}
+
+.dark-mode .nav a:hover {
+    color: #0e9000;
+}
+
+.dark-mode .normal-container-name-item {
+    background-color: #333;
+    color: #ffffff;
+}
+
+.dark-mode img {
+    filter: invert(1);
+}
+
+.dark-mode .footer {
+    border-color: #444;
+}
