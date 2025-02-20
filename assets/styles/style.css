@@ -1,0 +1,159 @@
+/* Global Styles */
+body, html {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/page.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.page {
+    background-color: #c1c1c1;
+    background-position: 35%;
+    padding: 0 10%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.title {
+    flex: 1;
+    text-align: left;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right p {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Ensure the toggle button is not hidden */
+.right a {
+    display: inline-block;
+    padding: 5px;
+}
+
+/* Navigation Styles */
+.nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-panel {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-panel button {
+    background-color: #141414;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.nav-panel button:hover {
+    background-color: #000;
+    transform: scale(1.05);
+}
+
+/* Content Styles */
+.content {
+    text-align: center;
+}
+
+.content iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    border-top: 1px solid #c1c1c1;
+    padding: 10px 0;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .page {
+    background-color: #1e1e1e;
+    background-image: none;
+}
+
+.dark-mode .nav-panel button {
+    background-color: #0e9000;
+}
+
+.dark-mode .nav-panel button:hover {
+    background-color: #0e9000;
+}
+
+.dark-mode .footer {
+    border-color: #444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .nav-panel {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-panel button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .content iframe {
+        height: 500px;
+    }
+}

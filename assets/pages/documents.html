@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="stylesheet" type="text/css" href="../styles/stylepage.css">
+    <script>
+        function loadPDF(documentId) {
+            var pdfLinks = {
+                'Project Charter': '../documents/Project_Charter.pdf',
+                'Proposal Document 1': '../documents/PPReport - IT21826368 - Attack Defense and Resilience.pdf',
+                'Proposal Document 2': '../documents/Proposal_Document_2.pdf',
+                'Proposal Document 3': '../documents/PPReport - IT21831904 - Secure Aggregation.pdf',
+                'Proposal Document 4': '../documents/Proposal_Document_4.pdf',
+                'Research Logbook 1': '../documents/Research_Logbook_1.pdf',
+                'Research Logbook 2': '../documents/Research_Logbook_2.pdf',
+                'Research Logbook 3': '../documents/Research_Logbook_3.pdf',
+                'Research Logbook 4': '../documents/Research_Logbook_4.pdf',
+                'Status Document I 1': '../documents/Status_Document_I_1.pdf',
+                'Status Document I 2': '../documents/Status_Document_I_2.pdf',
+                'Status Document I 3': '../documents/Status_Document_I_3.pdf',
+                'Status Document I 4': '../documents/Status_Document_I_4.pdf',
+                'Status Document II 1': '../documents/Status_Document_II_1.pdf',
+                'Status Document II 2': '../documents/Status_Document_II_2.pdf',
+                'Status Document II 3': '../documents/Status_Document_II_3.pdf',
+                'Status Document II 4': '../documents/Status_Document_II_4.pdf',
+                'Final Report Group': '../documents/Final_Report_Group.pdf',
+                'Final Report 1': '../documents/Final_Report_1.pdf',
+                'Final Report 2': '../documents/Final_Report_2.pdf',
+                'Final Report 3': '../documents/Final_Report_3.pdf',
+                'Final Report 4': '../documents/Final_Report_4.pdf',
+                'Final Report 5': '../documents/Final_Report_5.pdf'
+            };
+
+            var container = document.getElementById(documentId);
+            var existingIframe = container.querySelector("iframe");
+
+            if (!existingIframe) {
+                var iframe = document.createElement('iframe');
+                iframe.src = pdfLinks[documentId];
+                iframe.width = "100%";
+                iframe.height = "500px";
+                iframe.frameBorder = "0";
+                container.appendChild(iframe);
+
+                // Create and add close button
+                var closeButton = document.createElement('button');
+                closeButton.innerText = "Close PDF";
+                closeButton.onclick = function() {
+                    container.removeChild(iframe);
+                    container.removeChild(closeButton);
+                };
+                container.appendChild(closeButton);
+            }
+        }
+
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            var content = section.querySelector('.section-content');
+            var button = section.querySelector('button');
+
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                button.innerText = 'Hide Documents';
+            } else {
+                content.style.display = 'none';
+                button.innerText = 'Show Documents';
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .document-category {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .document-category h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .document-category button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .document-category button:hover {
+            background-color: #45a049;
+        }
+
+        .section-content {
+            margin-top: 15px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            margin-top: 15px;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .close-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Project Charter -->
+        <div class="document-category" id="Project Charter">
+            <h2>Project Charter</h2>
+            <button onclick="toggleSection('Project Charter')">Show Documents</button>
+            <div class="section-content" style="display: none;">
+                <button onclick="loadPDF('Project Charter')">View Project Charter</button>
+            </div>
+        </div>
+
+        <!-- Proposal Documents -->
+        <div class="document-category" id="Proposal Documents">
+            <h2>Proposal Documents</h2>
+            <button onclick="toggleSection('Proposal Documents')">Show Documents</button>
+            <div class="section-content" style="display: none;">
+                <button onclick="loadPDF('Proposal Document 1')">View Proposal Document 1</button>
+                <button onclick="loadPDF('Proposal Document 2')">View Proposal Document 2</button>
+                <button onclick="loadPDF('Proposal Document 3')">View Proposal Document 3</button>
+                <button onclick="loadPDF('Proposal Document 4')">View Proposal Document 4</button>
+            </div>
+        </div>
+
+        <!-- Research Logbooks -->
+        <div class="document-category" id="Research Logbooks">
+            <h2>Research Logbooks</h2>
+            <button onclick="toggleSection('Research Logbooks')">Show Documents</button>
+            <div class="section-content" style="display: none;">
+                <button onclick="loadPDF('Research Logbook 1')">View Research Logbook 1</button>
+                <button onclick="loadPDF('Research Logbook 2')">View Research Logbook 2</button>
+                <button onclick="loadPDF('Research Logbook 3')">View Research Logbook 3</button>
+                <button onclick="loadPDF('Research Logbook 4')">View Research Logbook 4</button>
+            </div>
+        </div>
+
+        <!-- Status Documents I -->
+        <div class="document-category" id="Status Documents I">
+            <h2>Status Documents I</h2>
+            <button onclick="toggleSection('Status Documents I')">Show Documents</button>
+            <div class="section-content" style="display: none;">
+                <button onclick="loadPDF('Status Document I 1')">View Status Document I - 1</button>
+                <button onclick="loadPDF('Status Document I 2')">View Status Document I - 2</button>
+                <button onclick="loadPDF('Status Document I 3')">View Status Document I - 3</button>
+                <button onclick="loadPDF('Status Document I 4')">View Status Document I - 4</button>
+            </div>
+        </div>
+
+        <!-- Status Documents II -->
+        <div class="document-category" id="Status Documents II">
+            <h2>Status Documents II</h2>
+            <button onclick="toggleSection('Status Documents II')">Show Documents</button>
+            <div class="section-content" style="display: none;">
+                <button onclick="loadPDF('Status Document II 1')">View Status Document II - 1</button>
+                <button onclick="loadPDF('Status Document II 2')">View Status Document II - 2</button>
+                <button onclick="loadPDF('Status Document II 3')">View Status Document II - 3</button>
+                <button onclick="loadPDF('Status Document II 4')">View Status Document II - 4</button>
+            </div>
+        </div>
+
+        <!-- Final Reports -->
+        <div class="document-category" id="Final Reports">
+            <h2>Final Reports</h2>
+            <button onclick="toggleSection('Final Reports')">Show Documents</button>
+            <div class="section-content" style="display: none;">
+                <button onclick="loadPDF('Final Report Group')">View Final Report (Group)</button>
+                <button onclick="loadPDF('Final Report 1')">View Final Report 1</button>
+                <button onclick="loadPDF('Final Report 2')">View Final Report 2</button>
+                <button onclick="loadPDF('Final Report 3')">View Final Report 3</button>
+                <button onclick="loadPDF('Final Report 4')">View Final Report 4</button>
+                <button onclick="loadPDF('Final Report 5')">View Final Report 5</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

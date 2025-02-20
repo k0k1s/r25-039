@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
     <script>
         function toggleDarkMode() {
             var body = document.body;
@@ -19,7 +19,6 @@
             }
         }
     </script>
-   
 </head>
 <body onload="applySavedTheme();">
     <div class="page">
@@ -28,29 +27,30 @@
                 <p>
                     <strong>
                         <a href="javascript:void(0);" onclick="toggleDarkMode()">
-                            <img src="assets/images/contrast-outline.svg" alt="Toggle Dark/Light Mode">
+                            <img src="./assets/images/contrast-outline.svgs" alt="Toggle Dark/Light Mode" />
                         </a>
                     </strong>
                 </p>
             </div>
         </div>
 
+        <!-- Navigation Panel with Buttons in a Row -->
         <div class="nav">
-            <nav>
-                <a href="javascript:void(0);" onclick="loadContent('./pages/home.html')">Home</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./about.html')">About</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./scope.html')">Scope</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./milestones.html')">Milestones</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./tasks.html')">Tasks</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./documentation.html')">Documentation</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./pages/presentations.html')">Presentations</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./team.html')">Team</a> |
-                <a href="javascript:void(0);" onclick="loadContent('./contact.html')">Contact</a>
-            </nav>
+            <div class="nav-panel">
+                <button onclick="loadContent('./assets/pages/home.html')">Home</button>
+                <button onclick="loadContent('./about.html')">About</button>
+                <button onclick="loadContent('./scope.html')">Scope</button>
+                <button onclick="loadContent('./milestones.html')">Milestones</button>
+                <button onclick="loadContent('./tasks.html')">Tasks</button>
+                <button onclick="loadContent('./assets/pages/documents.html')">Documentation</button>
+                <button onclick="loadContent('./assets/pages/presentations.html')">Presentations</button>
+                <button onclick="loadContent('./assets/pages/team.html')">Team</button>
+                <button onclick="loadContent('./contact.html')">Contact</button>
+            </div>
         </div>
 
         <div class="content">
-            <iframe id="contentFrame" frameborder="0" src="./home.html"></iframe>
+            <iframe id="contentFrame" frameborder="0" src="./assets/pages/home.html"></iframe>
         </div>
 
         <div class="footer">
