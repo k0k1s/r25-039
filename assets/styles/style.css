@@ -1,7 +1,7 @@
-/* Global Styles */
-body, html {
-    font-family: 'Roboto Condensed', sans-serif;
-    height: 100%;
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: transparent; /* Transparent background */
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -21,18 +21,97 @@ body::before {
     background-position: center;
     opacity: 0.4;
     z-index: -1;
+}/* General body styles */
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+/* Section styles */
+.text-center {
+    text-align: center;
+}
+
+/* Home banner styles */
+.home-banner {
+    padding: 30px;
+    background-color: transparent; /* Transparent background */
+    margin-bottom: 30px;
+}
+
+/* Outer heading styles */
+.outer-heading {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Subtitle styles */
+.subtitle {
+    font-size: 18px;
+    color: #b8b8b8;
+    margin-top: 10px;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Document box container */
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Document category */
+.document-category {
+    position: center;
+    background-color: #6590be57;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.document-category:hover {
+    transform: translateY(-5px);
+}
+
+/* Global page styles */
 .page {
-    background-color: #ffffff73;
+    background-color: #f5f0f04d;
     background-position: 35%;
     padding: 0 10%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s ease;
+    color: #000;  /* Text color for light mode */
 }
 
+/* Header Styles */
 .header {
     display: flex;
     align-items: center;
@@ -41,11 +120,13 @@ body::before {
     justify-content: space-between;
 }
 
+/* Title inside header */
 .title {
     flex: 1;
     text-align: left;
 }
 
+/* Right section inside header */
 .right {
     display: flex;
     justify-content: flex-end;
@@ -58,7 +139,6 @@ body::before {
     color: #333;
 }
 
-/* Ensure the toggle button is not hidden */
 .right a {
     display: inline-block;
     padding: 5px;
@@ -115,30 +195,41 @@ body::before {
 
 .footer p {
     font-size: 14px;
-    color: #666;
+    color: #e4e4e4;  /* Light gray footer text color */
 }
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #000000;
+    color: #ffffff;  /* Default text color for dark mode */
 }
 
 .dark-mode .page {
-    background-color: #1e1e1e;
+    background-color: #000000;
     background-image: none;
+    color: #ffffff;  /* Ensure text inside the page stays white in dark mode */
 }
 
 .dark-mode .nav-panel button {
     background-color: #0e9000;
+    color: white;  /* Button text color in dark mode */
 }
 
 .dark-mode .nav-panel button:hover {
     background-color: #0e9000;
+    color: white;  /* Button hover text color */
 }
 
-.dark-mode .footer {
-    border-color: #444;
+.dark-mode .footer p {
+    color: #faeaea;  /* Lighter gray footer text color in dark mode */
+}
+
+.dark-mode .page a {
+    color: #00aaff;  /* Links color in dark mode */
+}
+
+.dark-mode .page a:hover {
+    color: #ffb74d;  /* Link hover color in dark mode */
 }
 
 /* Responsive Adjustments */
@@ -155,5 +246,11 @@ body.dark-mode {
 
     .content iframe {
         height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .document-category {
+        width: 100%;
     }
 }

@@ -8,22 +8,34 @@
     <script>
         function toggleDarkMode() {
             var body = document.body;
+            var switchIcon = document.getElementById('theme-switch-icon');
             var currentMode = body.classList.toggle('dark-mode');
+            
+            // Change SVG image based on mode
+            if (currentMode) {
+                switchIcon.src = './assets/images/switch-dark.svg'; // Dark mode icon
+            } else {
+                switchIcon.src = './assets/images/switch-light.svg'; // Light mode icon
+            }
+            
             localStorage.setItem('darkMode', currentMode ? 'enabled' : 'disabled');
         }
 
         function applySavedTheme() {
             var savedMode = localStorage.getItem('darkMode');
+            var switchIcon = document.getElementById('theme-switch-icon');
+            
             if (savedMode === 'enabled') {
                 document.body.classList.add('dark-mode');
+                switchIcon.src = './assets/images/switch-dark.svg'; // Dark mode icon
+            } else {
+                switchIcon.src = './assets/images/switch-light.svg'; // Light mode icon
             }
         }
     </script>
 </head>
 <body onload="applySavedTheme();">
     <div class="page">
-        
-
         <!-- Navigation Panel with Buttons in a Row -->
         <div class="nav">
             <div class="nav-panel">
@@ -37,10 +49,10 @@
                 
                 <!-- Add the Switch SVG Button here -->
                 <a href="javascript:void(0);" onclick="toggleDarkMode()">
-                    <img src="./assets/images/switch.svg" alt="Toggle Dark/Light Mode" style="width: 50px; height: 50px;" />
+                    <img id="theme-switch-icon" src="./assets/images/switch-light.svg" alt="Toggle Dark/Light Mode" style="width: 50px; height: 50px;" />
                 </a>
             </div>
-        </div>
+
 
         <div class="content">
             <iframe id="contentFrame" frameborder="0" src="./assets/pages/home.html"></iframe>
