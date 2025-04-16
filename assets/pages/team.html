@@ -1,193 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Introduction</title>
-    <link rel="stylesheet" type="text/css" href="../styles/stylepage.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: transparent; /* Set to transparent */
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <title>Team - FL Framework</title>
+  <script>
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
 
-        /* Apply styles to the box container */
-        .box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        /* Make the background transparent for each document-category */
-        .document-category {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .document-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .document-category img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            max-width: 150px;
-            margin-bottom: 15px;
-        }
-
-        .document-category h3 {
-            margin: 10px 0;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .document-category p {
-            margin: 5px 0;
-            font-size: 16px;
-            color: #666;
-        }
-
-        .document-category a {
-            display: block;
-            margin: 5px 0;
-            color: #0077b5;
-            text-decoration: none;
-        }
-
-        .document-category a:hover {
-            text-decoration: underline;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 32px;
-            color: #333;
-        }
-
-        /* Arrange the team members in a 2x2 grid for group members */
-        .group-members {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .group-members .document-category {
-            width: 35%; /* Adjust width to create the 2x2 grid */
-        }
-
-        /* Style for supervisor, external supervisor, and co-supervisor sections */
-        .supervisor-section {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 30px;
-            width: 100%;
-        }
-
-        /* Style for the team section */
-        .team-section {
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+  </script>
 </head>
 <body>
-    <div class="container">
-        <h2>Meet Our Team</h2>
+  <div class="container">
+    <header class="team-header">
+      <h1>Meet the Team</h1>
+      <p>Guiding and building the Federated Learning Framework</p>
+    </header>
 
-        <!-- Supervisor, External Supervisor, and Co-Supervisor Section -->
-        <div class="supervisor-section">
-            <!-- Supervisor -->
-            <div class="document-category">
-                <img src="../images/male.jpg" alt="Supervisor">
-                <h3>Mr. Amila Senerathne</h3>
-                <p>Supervisor</p>
-                <a href="https://www.linkedin.com/in/amila-senerathne" target="_blank">LinkedIn</a>
-                <a href="mailto:amila@email.com">Email</a>
-            </div>
-
-            <!-- External Supervisor -->
-            <div class="document-category">
-                <img src="../images/female.jpg" alt="External Supervisor">
-                <h3>Dr. Sanika Wijesekara</h3>
-                <p>External Supervisor</p>
-                <a href="https://www.linkedin.com/in/sanika-wijesekara" target="_blank">LinkedIn</a>
-                <a href="mailto:sanika@email.com">Email</a>
-            </div>
-
-            <!-- Co-Supervisor -->
-            <div class="document-category">
-                <img src="../images/male.jpg" alt="Co-Supervisor">
-                <h3>Mr. Tharaniyawarma Kumaralingam</h3>
-                <p>Co-Supervisor</p>
-                <a href="https://www.linkedin.com/in/tharaniyawarma" target="_blank">LinkedIn</a>
-                <a href="mailto:tharaniyawarma@email.com">Email</a>
-            </div>
+    <section class="team-section">
+      <h2>Supervisors</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="../images/amila.jpg" alt="Mr. Amila Senerathne" />
+          <h4>Mr. Amila Senerathne</h4>
+          <p>Supervisor</p>
+          <div class="team-links">
+            <a href="https://www.linkedin.com/in/amila-nuwan-senarathne-462b5a30/?originalSubdomain=lk" target="_blank">LinkedIn</a>
+          </div>
         </div>
 
-        <!-- Group Members Section -->
-        <div class="group-members">
-            <!-- Team Member 1 -->
-            <div class="document-category">
-                <img src="../images/tharindu.jpg" alt="Team Member 1">
-                <h3>Nanayakkara Y.D.T.D</h3>
-                <p>Project Lead</p>
-                <a href="https://www.linkedin.com/in/nanayakkara" target="_blank">LinkedIn</a>
-                <a href="mailto:nanayakkara@email.com">Email</a>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="document-category">
-                <img src="../images/mendis.jpg" alt="Team Member 2">
-                <h3>Mendis H.R.M</h3>
-                <p>Sub-Objective: Attack Detection and Resilience</p>
-                <a href="https://www.linkedin.com/in/mendis" target="_blank">LinkedIn</a>
-                <a href="mailto:mendis@email.com">Email</a>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="document-category">
-                <img src="../images/kavindu.jpg" alt="Team Member 3">
-                <h3>Weerasinghe K.M.</h3>
-                <p>Sub-Objective: Privacy Preservation</p>
-                <a href="https://www.linkedin.com/in/weerasinghe" target="_blank">LinkedIn</a>
-                <a href="mailto:weerasinghe@email.com">Email</a>
-            </div>
-
-            <!-- Team Member 4 -->
-            <div class="document-category">
-                <img src="../images/ashan.jpg" alt="Team Member 4">
-                <h3>Dissanayaka K.D.A.R.A</h3>
-                <p>Sub-Objective: Secure Aggregation</p>
-                <a href="https://www.linkedin.com/in/dissanayaka" target="_blank">LinkedIn</a>
-                <a href="mailto:dissanayaka@email.com">Email</a>
-            </div>
+        <div class="team-card">
+          <img src="../images/shanika.jpg" alt="Dr. Sanika Wijesekara" />
+          <h4>Dr. Sanika Wijesekara</h4>
+          <p>External Supervisor</p>
+          <div class="team-links">
+            <a href="mailto:sanika@email.com">Email</a>
+            <a href="https://www.linkedin.com/in/sanika-wijesekara" target="_blank">LinkedIn</a>
+          </div>
         </div>
 
-        <!-- Team Section -->
-        <div class="team-section">
-            <h3>Our Team</h3>
-            <p>We are a dedicated team working towards developing a secure federated learning system for Industrial IoT.</p>
+        <div class="team-card">
+          <img src="../images/warma.jpg" alt="Mr. Tharaniyawarma Kumaralingam" />
+          <h4>Mr. Tharaniyawarma Kumaralingam</h4>
+          <p>Co-Supervisor</p>
+          <div class="team-links">
+            <a href="mailto:tharaniyawarma@email.com">Email</a>
+            <a href="https://www.linkedin.com/in/tharaniyawarma" target="_blank">LinkedIn</a>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <h2>Team Members</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="../images/tharindu.jpg" alt="Y.D.T.D Nanayakkara" />
+          <h4>Y.D.T.D Nanayakkara</h4>
+          <p>Attack Detection & Resilience</p>
+          <div class="team-links">
+            <a href="mailto:nanayakkara@email.com">Email</a>
+            <a href="https://www.linkedin.com/in/nanayakkara" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="../images/mendis.jpg" alt="H.R.M Mendis" />
+          <h4>H.R.M Mendis</h4>
+          <p>Privacy Preservation</p>
+          <div class="team-links">
+            <a href="mailto:mendis@email.com">Email</a>
+            <a href="https://www.linkedin.com/in/mendis" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="../images/kavindu.jpg" alt="K.M. Weerasinghe" />
+          <h4>K.M. Weerasinghe</h4>
+          <p>Secure Aggregation</p>
+          <div class="team-links">
+            <a href="mailto:weerasinghe@email.com">Email</a>
+            <a href="https://www.linkedin.com/in/weerasinghe" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="../images/ashan.jpg" alt="K.D.A.R.A Dissanayaka" />
+          <h4>K.D.A.R.A Dissanayaka</h4>
+          <p>Secure Communication</p>
+          <div class="team-links">
+            <a href="mailto:dissanayaka@email.com">Email</a>
+            <a href="https://www.linkedin.com/in/dissanayaka" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>

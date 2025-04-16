@@ -1,256 +1,1298 @@
-/* General body styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: transparent; /* Transparent background */
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative;
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .component-blocks {
+    grid-template-columns: 1fr;
+  }
 }
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/page.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.4;
-    z-index: -1;
-}/* General body styles */
-
-/* Container styles */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Section styles */
-.text-center {
-    text-align: center;
-}
-
-/* Home banner styles */
 .home-banner {
-    padding: 30px;
-    background-color: transparent; /* Transparent background */
-    margin-bottom: 30px;
+  background: linear-gradient(135deg, #e6f0ff00, #e6ffe600); /* light mode gradient */
+  padding: 60px 30px;
+  border-radius: 16px;
+  margin: 40px auto;
+  transition: background 0.3s ease;
 }
 
-/* Outer heading styles */
-.outer-heading {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
+body.dark-mode .home-banner {
+  background: linear-gradient(135deg, #1e1e2f, #1a3320); /* dark mode gradient */
+  color: #f0f0f0;
 }
 
-/* Subtitle styles */
-.subtitle {
-    font-size: 18px;
-    color: #b8b8b8;
-    margin-top: 10px;
+.home-banner h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
 }
 
-/* Button styles */
+.home-banner p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+body.dark-mode .home-banner p {
+  color: #ccc;
+}
+/* --------------------------------------
+   RESET & BASE STYLES
+-------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f9ff;
+  color: #1c1c1c;
+  font-size: 18px;
+  line-height: 1.8;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e4e4e4;
+}
+
+a {
+  color: #0051cc;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #00308f;
+  text-decoration: underline;
+}
+
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
+  padding: 12px 20px;
+  margin: 5px;
+  border: none;
+  background-color: #ffffff00;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #002f7500;  
+  color: #11005e;
 }
 
-/* Document box container */
-.box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-/* Document category */
-.document-category {
-    position: center;
-    background-color: #6590be57;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    text-align: center;
-    transition: transform 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.document-category:hover {
-    transform: translateY(-5px);
-}
-
-/* Global page styles */
-.page {
-    background-color: #f5f0f04d;
-    background-position: 35%;
-    padding: 0 10%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #000;  /* Text color for light mode */
-}
-
-/* Header Styles */
-.header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-    justify-content: space-between;
-}
-
-/* Title inside header */
-.title {
-    flex: 1;
-    text-align: left;
-}
-
-/* Right section inside header */
-.right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.right p {
-    margin: 0 10px;
-    font-size: 14px;
-    color: #333;
-}
-
-.right a {
-    display: inline-block;
-    padding: 5px;
-}
-
-/* Navigation Styles */
+/* --------------------------------------
+   NAVIGATION BAR
+-------------------------------------- */
 .nav {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  background-color: #e2eaff;
+  border-bottom: 2px solid #b6c6ff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+body.dark-mode .nav {
+  background-color: #1c1f3a;
+  border-bottom: 2px solid #4a507b;
 }
 
 .nav-panel {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.nav-panel button.active {
+  background-color: #0043a100;
+  color: #0043a1;
+  border-radius: 6px;
+  font-weight: bold;
 }
 
-.nav-panel button {
-    background-color: #141414;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border-radius: 5px;
-    text-align: center;
+.nav-panel button,
+.nav-panel a img {
+  margin: 5px;
 }
 
-.nav-panel button:hover {
-    background-color: #000;
-    transform: scale(1.05);
-}
-
-/* Content Styles */
+/* --------------------------------------
+   MAIN CONTENT & IFRAME
+-------------------------------------- */
 .content {
-    text-align: center;
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: transparent;
 }
 
 .content iframe {
-    width: 100%;
-    height: 800px;
-    border: none;
+  width: 96%;
+  height: 100%;
+  border: 2px solid #b6c6ff;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styles */
+body.dark-mode .content iframe {
+  background-color: #1e1e2e;
+  border-color: #5a6fcf;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+/* --------------------------------------
+   FOOTER
+-------------------------------------- */
 .footer {
-    text-align: center;
-    border-top: 1px solid #c1c1c1;
-    padding: 10px 0;
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
-.footer p {
-    font-size: 14px;
-    color: #e4e4e4;  /* Light gray footer text color */
+/* --------------------------------------
+   CONTAINER
+-------------------------------------- */
+.container {
+  background-color: transparent;
+  padding: 20px;
+  max-width: 95%;
+  margin: 2px auto;
+  border-radius: 1px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #000000;
-    color: #ffffff;  /* Default text color for dark mode */
+section {
+  margin-bottom: 40px;
 }
 
-.dark-mode .page {
-    background-color: #000000;
-    background-image: none;
-    color: #ffffff;  /* Ensure text inside the page stays white in dark mode */
+/* --------------------------------------
+   TABLE STYLING
+-------------------------------------- */
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.dark-mode .nav-panel button {
-    background-color: #0e9000;
-    color: white;  /* Button text color in dark mode */
+.project-table th,
+.project-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
-.dark-mode .nav-panel button:hover {
-    background-color: #0e9000;
-    color: white;  /* Button hover text color */
+.project-table th {
+  background-color: #003e95;
+  color: #fff;
 }
 
-.dark-mode .footer p {
-    color: #faeaea;  /* Lighter gray footer text color in dark mode */
+.project-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.dark-mode .page a {
-    color: #00aaff;  /* Links color in dark mode */
+/* --------------------------------------
+   TEAM SECTIONS
+-------------------------------------- */
+.supervisor-section,
+.group-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.dark-mode .page a:hover {
-    color: #ffb74d;  /* Link hover color in dark mode */
+/* --------------------------------------
+   DOCUMENT CATEGORY STYLES
+-------------------------------------- */
+.document-category {
+  background-color: #94949400;
+  text-align: center;
+  margin: 30px;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+
+
 }
 
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-    .nav-panel {
-        flex-direction: column;
-        gap: 5px;
-    }
+/* Light mode link */
+.document-category a {
+  display: inline;
+  margin-top: 10px;
+  color: #0043a1;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
 
-    .nav-panel button {
-        width: 100%;
-        font-size: 14px;
-    }
+/* Light mode hover */
+.document-category a:hover {
+  color: #002f75;
+}
 
-    .content iframe {
-        height: 500px;
-    }
+/* Dark mode link */
+body.dark-mode .document-category a {
+  color: #80bfff; /* Softer blue in dark mode */
+}
+
+/* Dark mode hover */
+body.dark-mode .document-category a:hover {
+  color: #a6ceff;
+}
+
+/* --------------------------------------
+   PROGRESS BAR
+-------------------------------------- */
+.progress-bar-wrapper {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  background-color: #b6b6b6;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 35px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.progress-fill {
+  background-color: #00c510;
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.progress-label {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  line-height: 35px;
+  color: #000000; /* White text stands out on dark blue */
+  z-index: 2;
+}
+
+/* --------------------------------------
+   HOME PAGE STYLES
+-------------------------------------- */
+.home-banner h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.home-banner p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------
+   ARCHITECTURE SECTION
+-------------------------------------- */
+.architecture {
+  text-align: center;
+  margin: 50px;
+  font-size: 1.5rem;
+  color: #0043a1;
+}
+
+.architecture img {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* --------------------------------------
+   IMPORTANCE SECTION
+-------------------------------------- */
+.importance {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* --------------------------------------
+   COMPONENTS SECTION
+/* Core Components Section */
+/* Core Components Section */
+.components {
+  margin-top: 40px;
+}
+
+.component-blocks {
+  display: flex;
+  flex-wrap: wrap;  /* Allows components to wrap to the next line if there's not enough space */
+  gap: 20px;
+  justify-content: space-between; /* Ensures even spacing between the boxes */
+}
+
+.component {
+  flex: 1 1 23%;  /* Flex-grow: 1, flex-shrink: 1, basis: 23% for 4 items in one row */
+  min-width: 220px; /* Ensures they don’t shrink too much on smaller screens */
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.component h3 {
+  margin-bottom: 10px;
+}
+
+.component p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .component {
+    flex: 1 1 48%;  /* 2 items per row on medium screens */
+  }
 }
 
 @media (max-width: 768px) {
-    .document-category {
-        width: 100%;
-    }
+  .component {
+    flex: 1 1 100%;  /* 1 item per row on smaller screens */
+  }
+}
+
+
+/* --------------------------------------
+   INDUSTRIES SECTION
+-------------------------------------- */
+.industries {
+  margin-top: 40px;
+}
+
+.industry-blocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.industry {
+  width: 23%;
+  min-width: 220px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.industry h3 {
+  margin-bottom: 10px;
+}
+
+/* --------------------------------------
+   BENEFITS SECTION
+-------------------------------------- */
+.benefits {
+  margin-top: 40px;
+}
+
+.benefit-blocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.benefit {
+  width: 30%;
+  min-width: 220px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.benefit h3 {
+  margin-bottom: 10px;
+}
+
+/* --------------------------------------
+   DARK MODE STYLES
+-------------------------------------- */
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .nav,
+.dark-mode .footer,
+.dark-mode .document-category {
+  background-color: #1e1e1e;
+  color: #ccc;
+}
+
+.dark-mode .nav {
+  border-bottom: 1px solid #333;
+}
+
+.dark-mode .content,
+.dark-mode .content iframe,
+.dark-mode .container {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+.dark-mode .project-table th {
+  background-color: #0062cc;
+}
+
+.dark-mode .project-table td,
+.dark-mode .project-table th {
+  border-color: #444;
+}
+
+.dark-mode .project-table tr:nth-child(even) {
+  background-color: #1c1c1c;
+}
+
+.dark-mode .document-category {
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .progress-bar {
+  background-color: #333;
+}
+
+.dark-mode .progress-fill {
+  background-color: #0f9d58;
+}
+
+.dark-mode a {
+  color: #8ab4f8;
+}
+
+.dark-mode button {
+  background-color: #3a3a3a00;
+  color: #f1f1f1;
+}
+
+.dark-mode button:hover {
+  background-color: #5a5a5a00;
+  color:#4371b6;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode span,
+.dark-mode td,
+.dark-mode th,
+.dark-mode a {
+  color: #f1f1f1 !important;
+}
+
+.get-started, .industries, .benefits, .github-cta, .feedback, .footer {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--section-bg);
+  color: var(--text-color);
+}
+
+.supported-features, .benefit-detailed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+/* Team Page Styling */
+.team-header {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.team-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color, #0043a1);
+}
+
+.team-header p {
+  font-size: 1rem;
+  color: var(--text-color, #333);
+}
+
+
+.team-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color, #0043a1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* General Grid for Team Members (2x2) */
+.team-grid {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for team members */
+  justify-content: center;
+  padding: 0 10px;
+}
+
+/* Single Column for Supervisors */
+.team-section:first-of-type .team-grid {
+  grid-template-columns: repeat(3, 1fr); /* Three columns for supervisors */
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(1, 1fr); /* One column for smaller screens */
+  }
+}
+
+
+.team-card {
+  background-color: var(--box-bg, #fff);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.team-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px; /* Less round than a circle */
+  margin-bottom: 15px;
+  border: 3px solid var(--primary-color, #0000009c);
+}
+
+.team-card h4 {
+  margin: 10px 0 5px;
+  color: var(--primary-color, #3b3b3b);
+  font-style: italic;
+}
+
+
+.team-card p {
+  font-size: 0.95rem;
+  color: var(--text-color, #555);
+}
+
+.team-links {
+  margin-top: 10px;
+}
+
+.team-links a {
+  display: inline-block;
+  margin: 4px 6px;
+  font-size: 0.85rem;
+  color: #0077b5;
+  text-decoration: none;
+}
+
+.team-links a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode support */
+body.dark-mode {
+  background-color: #121212;
+  color: #e4e4e4;
+}
+
+body.dark-mode .team-card {
+  background-color: #1e1e2f;
+  color: #e4e4e4;
+}
+
+body.dark-mode .team-card img {
+  border-color: #80bfff;
+}
+
+body.dark-mode .team-card h3,
+body.dark-mode .team-card h4 {
+  color: #80bfff;
+}
+
+body.dark-mode .team-card p {
+  color: #ccc;
+}
+
+
+/* --------------------------------------
+   RESET & BASE STYLES
+-------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f9ff;
+  color: #1c1c1c;
+  font-size: 18px;
+  line-height: 1.8;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e4e4e4;
+}
+
+a {
+  color: #0051cc;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #00308f;
+  text-decoration: underline;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 5px;
+  border: none;
+  background-color: transparent; /* Improved: Inherit background */
+  color: #000000;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+}
+
+button:hover {
+  background-color: rgba(0, 83, 179, 0.1); /* Improved: Subtle hover effect */
+  color: #00308f;
+}
+
+body.dark-mode button {
+  color: #e4e4e4;
+}
+
+body.dark-mode button:hover {
+  background-color: rgba(138, 180, 248, 0.1); /* Improved: Subtle dark mode hover */
+  color: #8ab4f8;
+}
+
+/* --------------------------------------
+   NAVIGATION BAR
+-------------------------------------- */
+.nav {
+  background-color: #e2eaff;
+  border-bottom: 2px solid #b6c6ff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex; /* Improved: For alignment */
+  justify-content: center; /* Improved: Center items */
+}
+
+body.dark-mode .nav {
+  background-color: #1c1f3a;
+  border-bottom: 2px solid #4a507b;
+}
+
+.nav-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-panel button {
+  padding: 10px 15px; /* Adjusted button padding in nav */
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 6px; /* Slightly smaller for nav */
+  font-size: 18px; /* Adjusted font size in nav */
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-panel button:hover,
+.nav-panel button.active {
+  background-color: rgba(0, 83, 179, 0.15); /* Improved hover/active */
+  color: #0043a1;
+  font-weight: bold;
+}
+
+body.dark-mode .nav-panel button {
+  color: #e4e4e4;
+}
+
+body.dark-mode .nav-panel button:hover,
+body.dark-mode .nav-panel button.active {
+  background-color: rgba(138, 180, 248, 0.15);
+  color: #8ab4f8;
+}
+
+.nav-panel a img {
+  margin: 5px;
+  max-height: 40px; /* Improved: Control image size */
+}
+
+/* --------------------------------------
+   MAIN CONTENT & IFRAME
+-------------------------------------- */
+.content {
+  width: 100%;
+  height: calc(100vh - 60px); /* Improved: Adjusted height based on combined nav/footer */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: transparent;
+}
+
+.content iframe {
+  width: 98%; /* Improved: Slightly wider */
+  height: 100%;
+  border: 1px solid #b6c6ff; /* Improved: Thinner border */
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .content iframe {
+  background-color: #1e1e2e;
+  border-color: #5a6fcf;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+/* --------------------------------------
+   FOOTER
+-------------------------------------- */
+.footer {
+  background-color: #e2eaff; /* Improved: Same as nav */
+  border-top: 2px solid #b6c6ff; /* Improved: Matching border */
+  padding: 15px 0; /* Improved: Same padding as nav */
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .footer {
+  background-color: #1c1f3a; /* Improved: Same as dark nav */
+  border-top: 2px solid #4a507b; /* Improved: Matching dark border */
+  color: #e4e4e4; /* Improved: Dark mode text color */
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #0051cc; /* Improved: Consistent link color */
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #00308f;
+  text-decoration: underline;
+}
+
+body.dark-mode .footer-links a {
+  color: #8ab4f8; /* Improved: Dark mode link color */
+}
+
+body.dark-mode .footer-links a:hover {
+  color: #a6ceff;
+}
+
+/* --------------------------------------
+   CONTAINER
+-------------------------------------- */
+.container {
+  background-color: transparent;
+  padding: 20px;
+  max-width: 95%;
+  margin: 2px auto;
+  border-radius: 1px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* --------------------------------------
+   TABLE STYLING
+-------------------------------------- */
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.project-table th,
+.project-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.project-table th {
+  background-color: #003e95;
+  color: #fff;
+}
+
+.project-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+body.dark-mode .project-table th {
+  background-color: #0062cc;
+  color: #f1f1f1;
+}
+
+body.dark-mode .project-table td {
+  border-color: #444;
+  color: #f1f1f1;
+}
+
+body.dark-mode .project-table tr:nth-child(even) {
+  background-color: #1c1c1c;
+}
+
+/* --------------------------------------
+   TEAM SECTIONS
+-------------------------------------- */
+.supervisor-section,
+.group-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* --------------------------------------
+   DOCUMENT CATEGORY STYLES
+-------------------------------------- */
+.document-category {
+  background-color: transparent; /* Improved: Inherit background */
+  text-align: center;
+  margin: 30px;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+}
+
+/* Light mode link */
+.document-category a {
+  display: inline;
+  margin-top: 10px;
+  color: #0043a1;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+/* Light mode hover */
+.document-category a:hover {
+  color: #002f75;
+}
+
+/* Dark mode link */
+body.dark-mode .document-category a {
+  color: #80bfff; /* Softer blue in dark mode */
+}
+
+/* Dark mode hover */
+body.dark-mode .document-category a:hover {
+  color: #a6ceff;
+}
+
+/* --------------------------------------
+   PROGRESS BAR
+-------------------------------------- */
+.progress-bar-wrapper {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  background-color: #b6b6b6;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 35px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.progress-fill {
+  background-color: #00c510;
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.progress-label {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  line-height: 35px;
+  color: #000000; /* White text stands out on dark blue */
+  z-index: 2;
+}
+
+body.dark-mode .progress-bar {
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+body.dark-mode .progress-fill {
+  background-color: #0f9d58;
+}
+
+body.dark-mode .progress-label {
+  color: #f1f1f1;
+}
+
+/* --------------------------------------
+   HOME PAGE STYLES
+-------------------------------------- */
+.home-banner {
+  background: linear-gradient(135deg, #e6f0ff00, #e6ffe600); /* light mode gradient */
+  padding: 60px 30px;
+  border-radius: 16px;
+  margin: 40px auto;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode .home-banner {
+  background: linear-gradient(135deg, #1e1e2f, #1a3320); /* dark mode gradient */
+  color: #f0f0f0;
+}
+
+.home-banner h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  text-align: center; /* Improved: Center heading */
+}
+
+.home-banner p {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center; /* Improved: Center paragraph */
+}
+
+body.dark-mode .home-banner p {
+  color: #ccc;
+}
+
+/* --------------------------------------
+   ARCHITECTURE SECTION
+-------------------------------------- */
+.architecture {
+  text-align: center;
+  margin: 50px;
+  font-size: 1.5rem;
+  color: #0043a1;
+}
+
+.architecture img {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* --------------------------------------
+   IMPORTANCE SECTION
+-------------------------------------- */
+.importance {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* --------------------------------------
+   COMPONENTS SECTION
+-------------------------------------- */
+.components {
+  margin-top: 40px;
+}
+
+.components h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.component-blocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.component {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  text-align: center; /* Improved: Center content */
+}
+
+.component:hover {
+  background-color: #f1f1f1;
+}
+
+
+.component p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+body.dark-mode .components h2,
+body.dark-mode .component h3,
+body.dark-mode .component p {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .component {
+  background-color: #1e1e2e;
+  border-color: #333;
+}
+
+body.dark-mode .component:hover {
+  background-color: #2a2a3a;
+}
+
+/* --------------------------------------
+   INDUSTRIES SECTION
+-------------------------------------- */
+.industries {
+  margin-top: 40px;
+}
+
+.industry-blocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.industry {
+  width: 23%;
+  min-width: 220px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.industry h3 {
+  margin-bottom: 10px;
+}
+
+body.dark-mode .industries h2,
+body.dark-mode .industry h3 {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .industry {
+  background-color: #1e1e2e;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+
+.get-started, .industries, .benefits, .github-cta, .feedback, .footer {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--section-bg);
+  color: var(--text-color);
+}
+
+.supported-features, .benefit-detailed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.feature, .benefit-box {
+  flex: 1 1 30%;
+  background: var(--box-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.steps-progress .step {
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  background: linear-gradient(to right, #0049af, #34a853);
+  color: white;
+  border-radius: 8px;
+}
+
+.industry-cube {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cube-piece {
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: var(--box-bg);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.github-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #ac4141;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.feedback form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedback input, .feedback textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.feedback button {
+  padding: 0.75rem;
+  background-color: #34a853;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+  background-color: var(--footer-bg);
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #888;
+}
+/* Industries Section */
+
+.industry-img {
+  width: 150px;  /* Adjust the size of the image */
+  height: 150px;
+  object-fit: contain;  /* Ensure the image scales correctly */
+  margin-bottom: 15px;
+}
+
+
+/* 📢 Provide Feedback Section */
+.feedback {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.feedback h2 {
+  font-size: 2rem;
+  color: var(--primary-color, #0043a1);
+}
+
+.feedback p {
+  font-size: 1.1rem;
+  color: var(--text-color, #333);
+  margin-bottom: 20px;
+}
+
+/* Style for the button */
+#showFormBtn {
+  background-color: #0043a1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#showFormBtn:hover {
+  background-color: #00368d;
+  transform: scale(1.05);
+}
+
+#showFormBtn:focus {
+  outline: none;
+}
+
+/* Style for the feedback form container */
+#feedbackForm {
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+/* If you want to style the embedded form (iframe) */
+#feedbackForm iframe {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }

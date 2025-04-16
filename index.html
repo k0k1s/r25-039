@@ -1,73 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
-    <link rel="stylesheet" href="./assets/styles/style.css">
-    <script>
-        function toggleDarkMode() {
-            var body = document.body;
-            var switchIcon = document.getElementById('theme-switch-icon');
-            var currentMode = body.classList.toggle('dark-mode');
-            
-            // Change SVG image based on mode
-            if (currentMode) {
-                switchIcon.src = './assets/images/switch-dark.svg'; // Dark mode icon
-            } else {
-                switchIcon.src = './assets/images/switch-light.svg'; // Light mode icon
-            }
-            
-            localStorage.setItem('darkMode', currentMode ? 'enabled' : 'disabled');
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Federated Learning for Industrial IoT – Data Privacy Framework</title>
+  <link rel="stylesheet" href="./assets/styles/style.css" />
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      const isDark = body.classList.toggle('dark-mode');
+      const icon = document.getElementById('theme-switch-icon');
 
-        function applySavedTheme() {
-            var savedMode = localStorage.getItem('darkMode');
-            var switchIcon = document.getElementById('theme-switch-icon');
-            
-            if (savedMode === 'enabled') {
-                document.body.classList.add('dark-mode');
-                switchIcon.src = './assets/images/switch-dark.svg'; // Dark mode icon
-            } else {
-                switchIcon.src = './assets/images/switch-light.svg'; // Light mode icon
-            }
-        }
-    </script>
+      icon.src = isDark ? './assets/images/switch-dark.svg' : './assets/images/switch-light.svg';
+      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+
+      const iframe = document.getElementById('contentFrame');
+      iframe.contentWindow.postMessage({ theme: isDark ? 'dark' : 'light' }, '*');
+    }
+
+    function applySavedTheme() {
+      const savedTheme = localStorage.getItem('darkMode');
+      const isDark = savedTheme === 'enabled';
+
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-switch-icon').src = './assets/images/switch-dark.svg';
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          const iframe = document.getElementById('contentFrame');
+          iframe.contentWindow.postMessage(
+            { theme: isDark ? 'dark' : 'light' },
+            '*'
+          );
+        }, 300);
+      });
+    }
+
+  function loadContent(page) {
+    const iframe = document.getElementById('contentFrame');
+    iframe.src = page;
+    iframe.onload = () => {
+      const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      iframe.contentWindow.postMessage({ theme }, '*');
+    };
+
+    // Highlight the active button
+    const buttons = document.querySelectorAll('.nav-panel button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    const clickedButton = Array.from(buttons).find(btn => btn.getAttribute('onclick')?.includes(page));
+    if (clickedButton) {
+      clickedButton.classList.add('active');
+    }
+  }
+</script>
+
 </head>
 <body onload="applySavedTheme();">
-    <div class="page">
-        <!-- Navigation Panel with Buttons in a Row -->
-        <div class="nav">
-            <div class="nav-panel">
-                <button onclick="loadContent('./assets/pages/home.html')">Home</button>
-                <button onclick="loadContent('./assets/pages/about.html')">About</button>
-                <button onclick="loadContent('./assets/pages/scope.html')">Scope</button>
-                <button onclick="loadContent('./assets/pages/milestone.html')">Milestones</button>
-                <button onclick="loadContent('./assets/pages/tasks.html')">Tasks</button>
-                <button onclick="loadContent('./assets/pages/documents.html')">Documentation</button>
-                <button onclick="loadContent('./assets/pages/team.html')">About US</button>
-                
-                <!-- Add the Switch SVG Button here -->
-                <a href="javascript:void(0);" onclick="toggleDarkMode()">
-                    <img id="theme-switch-icon" src="./assets/images/switch-light.svg" alt="Toggle Dark/Light Mode" style="width: 50px; height: 50px;" />
-                </a>
-            </div>
+  <header class="nav">
+    <nav class="nav-panel">
+      <button onclick="loadContent('./assets/pages/home.html')">Introduction</button>
+      <button onclick="loadContent('./assets/pages/about.html')">About</button>
+      <button onclick="loadContent('./assets/pages/scope.html')">Scope</button>
+      <button onclick="loadContent('./assets/pages/milestone.html')">Milestones</button>
+      <button onclick="loadContent('./assets/pages/tasks.html')">Tasks</button>
+      <button onclick="loadContent('./assets/pages/documents.html')">Documentation</button>
+      <button onclick="loadContent('./assets/pages/team.html')">Team</button>
+      <a href="#" onclick="toggleDarkMode()" aria-label="Toggle Theme">
+        <img id="theme-switch-icon" src="./assets/images/switch-light.svg" alt="Toggle Theme" width="40" height="40"/>
+      </a>
+    </nav>
+  </header>
 
+  <main class="content">
+    <iframe id="contentFrame" src="./assets/pages/home.html" frameborder="0" title="Content Frame"></iframe>
+  </main>
 
-        <div class="content">
-            <iframe id="contentFrame" frameborder="0" src="./assets/pages/home.html"></iframe>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2025 Data-Privacy Focused Federated Learning Framework for Industrial IoT</p>
-        </div>
-    </div>
-
-    <script>
-        function loadContent(page) {
-            var contentFrame = document.getElementById('contentFrame');
-            contentFrame.src = page;
-        }
-    </script>
+  <footer class="footer">
+    <p>&copy; Research Project - 2025</p>
+  </footer>
 </body>
 </html>

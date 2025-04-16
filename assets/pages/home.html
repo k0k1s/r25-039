@@ -1,131 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
-    <link rel="stylesheet" href="../styles/stylepage.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: transparent; /* Set background to transparent */
-        }
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles/style.css">
+  <title>Home - Data Privacy FL Framework</title>
+  <script>
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
 
-        .home-banner {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .home-banner h1 {
-            font-size: 3.5rem;
-            color: #333;
-        }
-
-        .home-banner .outer-heading strong {
-            color: #007bff;
-        }
-
-        .home-banner .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        .home-big-button {
-            margin-top: 30px;
-        }
-
-        .home-big-button .btn {
-            font-size: 1.2rem;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            line-height: 1.4; /* Ensures better alignment for multi-line text */
-        }
-
-        .home-big-button .btn br {
-            display: block;
-            content: "";
-            margin: 5px 0; /* Add some space between lines */
-        }
-
-        .home-big-button .btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* New styling for alignment */
-        .document-category {
-            
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-            width: 100%;
-            max-width: 90%; /* Limit max width */
-            margin: 30px auto; /* Centering and spacing */
-        }
-
-        .document-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .document-category p {
-            font-size: 16px;
-            color: #666;
-        }
-
-        .document-category a {
-            display: block;
-            margin-top: 15px;
-            color: #0077b5;
-            text-decoration: none;
-        }
-
-        .document-category a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+  </script>
 </head>
 <body>
+  <div class="container">
+    <!-- Home Banner Section -->
+    <section class="home-banner">
+      <h1>
+        <span style="color: #0043a1;">Data-Privacy</span>
+        <span style="color: #007720;">Federated Learning Framework</span>
+      </h1>
+      <p>Ensuring Security, Privacy, and Efficiency in Industrial IoT Systems</p>
 
-<div class="container">
-    <!-- Featured Content -->
-    <div class="home-banner">
-        <h1 class="outer-heading text-center">
-            <strong style="color: #1a73e8;">Data-Privacy Focused Federated Learning</strong> 
-            <strong style="color: #34a853;">Framework</strong> 
-            <strong style="color: #1a73e8;">For Industrial IoT</strong>
-        </h1>
-        
-        <p class="subtitle text-center">Ensuring Security, Privacy, and Efficiency in Industrial IoT Systems</p>
-        <div class="home-big-button text-center">
-            <a class="btn btn-lg btn-primary" href="" role="button" style="background-color: rgb(136, 1, 1); border-color: red; color: white;">
-                Still Under Development
-            </a>
-            
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 40%;"></div>
+          <span class="progress-label">40%</span>
         </div>
+      </div>
+    </section>
+
+    <!-- Document Category Section -->
+    <section class="document-category">
+      <p>Learn more about our research and progress.</p>
+      <a href="https://k0k1s.github.io/r25-039" target="_blank">Visit Documentation</a>
+    </section>
+
+    <!-- Architecture Image Section -->
+    <section class="architecture">
+      <h1>Architecture</h1>
+      <img src="../images/architecture.jpg" alt="System Architecture" class="architecture-image">
+    </section>
+
+    <!-- Importance Section -->
+    <section class="importance">
+      <h2>Why is Data Privacy in Federated Learning Important?</h2>
+      <p>Federated Learning frameworks enhance data privacy by processing data locally. This reduces the risk of sensitive data exposure.</p>
+    </section>
+
+<!-- Core Components Section -->
+<section class="components">
+  <h2>Core Components</h2>
+  <div class="component-blocks">
+    <div class="component">
+      <h3>Attack Detection & Resilience</h3>
+      <p>Mitigate model poisoning and Byzantine attacks using anomaly detection techniques. This component ensures the integrity of the federated learning system by identifying abnormal updates and preventing malicious contributions.</p>
     </div>
-
-    <!-- Example of document-category style applied below -->
-    <div class="document-category">
-        <p>Learn more about the framework and its components!</p>
-        <a href="https://k0k1s.github.io/r25-039" target="_blank">Visit our Documentation</a>
+    <div class="component">
+      <h3>Privacy Preservation</h3>
+      <p>Implement techniques like differential privacy, homomorphic encryption, and regular privacy audits to protect user data and prevent privacy breaches during model training and communication.</p>
     </div>
+    <div class="component">
+      <h3>Secure Aggregation</h3>
+      <p>Utilize Shamir’s Secret Sharing and threshold cryptography to securely aggregate model updates from multiple clients. This ensures that no individual client’s data is exposed during the aggregation process.</p>
+    </div>
+    <div class="component">
+      <h3>Secure C2 Communication</h3>
+      <p>Establish secure communication channels between clients and the server using TLS 1.3, HMAC, and mutual authentication. This ensures that data transmission is secure and resistant to eavesdropping and tampering.</p>
+    </div>
+  </div>
+</section>
 
-</div>
 
+
+    <!-- 🌟 Get Started Section -->
+    <section class="get-started">
+      <h2>Get Started with the Framework</h2>
+      <p>Follow these simple steps to integrate our privacy-preserving FL system into your workflow.</p>
+
+      <div class="supported-features">
+        <div class="feature">✔️ Secure Aggregation</div>
+        <div class="feature">✔️ Attack Detection</div>
+        <div class="feature">✔️ Privacy Preservation</div>
+        <div class="feature">✔️ Encryption Protocols</div>
+        <div class="feature">✔️ Adaptive Learning</div>
+        <div class="feature">✔️ Modular Design</div>
+      </div>
+
+      <div class="steps-progress">
+        <div class="step">Step 1: Setup Environment</div>
+        <div class="step">Step 2: Connect Clients</div>
+        <div class="step">Step 3: Configure Aggregator</div>
+        <div class="step">Step 4: Launch Training</div>
+        <div class="step">Step 5: Monitor & Adapt</div>
+      </div>
+    </section>
+
+<!-- 🧊 Industries Section (Cube in 4 Pieces) -->
+<section class="industries">
+  <h2>Industries Benefiting from This Framework</h2>
+  <div class="industry-cube">
+    <div class="cube-piece">
+      <img src="../images/automobile.svg" alt="Automobile Industry" class="industry-img" />
+      <h3>Automobile</h3>
+      <p>Enhances real-time data processing securely across vehicle nodes.</p>
+    </div>
+    <div class="cube-piece">
+      <img src="../images/health.svg" alt="Healthcare Industry" class="industry-img" />
+      <h3>Healthcare</h3>
+      <p>Protects sensitive patient data during model training.</p>
+    </div>
+    <div class="cube-piece">
+      <img src="../images/finance.svg" alt="Finance Industry" class="industry-img" />
+      <h3>Finance</h3>
+      <p>Prevents leakage of financial trends in federated systems.</p>
+    </div>
+    <div class="cube-piece">
+      <img src="../images/energy.svg" alt="Energy" class="industry-img" />
+      <h3>Energy</h3>
+      <p>Enables Energy saving Machine learing training without centralized storage risks.</p>
+    </div>
+  </div>
+</section>
+
+    <!-- ✅ Why Use / Importance Section (6 Detailed Boxes with ✔) -->
+    <section class="benefits">
+      <h2>Why Use This Framework?</h2>
+      <div class="benefit-detailed">
+        <div class="benefit-box">✔ Secure by Design: Built-in encryption and secure comms.</div>
+        <div class="benefit-box">✔ Privacy-Focused: Data never leaves the local client.</div>
+        <div class="benefit-box">✔ Scalable: Handles multiple clients and industrial scale loads.</div>
+        <div class="benefit-box">✔ Customizable: Modular architecture for different needs.</div>
+        <div class="benefit-box">✔ Resilient: Detects and responds to adversarial behavior.</div>
+        <div class="benefit-box">✔ Continuous Learning: Adapts over time to new anomalies.</div>
+      </div>
+    </section>
+
+    <!-- ⭐ GitHub Star CTA -->
+     <center>
+    <section class="github-cta">
+      <a class="github-button" href="https://github.com/RavinduMendis/R25-039" target="_blank">
+        ⭐ Star the Project on GitHub
+      </a>
+    </section>
+  </center>
+<!-- 📢 Provide Feedback Section -->
+<section class="feedback">
+  <h2>Provide Feedback</h2>
+  <p>We'd love to hear your thoughts!</p>
+  <button id="showFormBtn">Give Feedback</button>
+
+  <!-- The form will be hidden by default -->
+  <div id="feedbackForm" style="display: none;">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQSwq9XJ6Md5llRIclTbOudjjF2nDSolx5ycHgfBAIIjpdXw/viewform?usp=header" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  </div>
+</section>
+
+<script>
+  // Toggle visibility of the feedback form
+  document.getElementById('showFormBtn').addEventListener('click', function() {
+    var form = document.getElementById('feedbackForm');
+    if (form.style.display === "none") {
+      form.style.display = "block";
+      this.innerText = "Close Feedback Form"; // Change button text
+    } else {
+      form.style.display = "none";
+      this.innerText = "Give Feedback"; // Reset button text
+    }
+  });
+</script>
+
+
+    <!-- 🔚 Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
