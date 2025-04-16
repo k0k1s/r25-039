@@ -1,13 +1,13 @@
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .component-blocks {
     grid-template-columns: 1fr;
   }
 }
+
 .home-banner {
-  background: linear-gradient(135deg, #e6f0ff00, #e6ffe600); /* light mode gradient */
+  background: linear-gradient(135deg, #e6f0ff00, #e6ffe600);
+  /* light mode gradient */
   padding: 60px 30px;
   border-radius: 16px;
   margin: 40px auto;
@@ -15,7 +15,8 @@
 }
 
 body.dark-mode .home-banner {
-  background: linear-gradient(135deg, #1e1e2f, #1a3320); /* dark mode gradient */
+  background: linear-gradient(135deg, #1e1e2f, #1a3320);
+  /* dark mode gradient */
   color: #f0f0f0;
 }
 
@@ -32,6 +33,7 @@ body.dark-mode .home-banner {
 body.dark-mode .home-banner p {
   color: #ccc;
 }
+
 /* --------------------------------------
    RESET & BASE STYLES
 -------------------------------------- */
@@ -80,7 +82,7 @@ button {
 }
 
 button:hover {
-  background-color: #002f7500;  
+  background-color: #002f7500;
   color: #11005e;
 }
 
@@ -109,6 +111,7 @@ body.dark-mode .nav {
   flex-wrap: wrap;
   gap: 10px;
 }
+
 .nav-panel button.active {
   background-color: #0043a100;
   color: #0043a1;
@@ -126,37 +129,33 @@ body.dark-mode .nav {
 -------------------------------------- */
 .content {
   width: 100%;
-  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
   background-color: transparent;
 }
 
 .content iframe {
-  width: 96%;
+  width: 100%;
   height: 100%;
   border: 2px solid #b6c6ff;
   border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .content iframe {
   background-color: #1e1e2e;
   border-color: #5a6fcf;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
 /* --------------------------------------
    FOOTER
 -------------------------------------- */
 .footer {
-  background-color: #f0f0f0;
-  padding: 10px;
   text-align: center;
   font-size: 0.9rem;
+  background-color: #e2eaff;
+  border-bottom: 2px solid #b6c6ff;
 }
 
 /* --------------------------------------
@@ -164,11 +163,7 @@ body.dark-mode .content iframe {
 -------------------------------------- */
 .container {
   background-color: transparent;
-  padding: 20px;
-  max-width: 95%;
-  margin: 2px auto;
-  border-radius: 1px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
 }
 
 section {
@@ -212,45 +207,6 @@ section {
   margin-top: 20px;
 }
 
-/* --------------------------------------
-   DOCUMENT CATEGORY STYLES
--------------------------------------- */
-.document-category {
-  background-color: #94949400;
-  text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 6px;
-
-
-}
-
-/* Light mode link */
-.document-category a {
-  display: inline;
-  margin-top: 10px;
-  color: #0043a1;
-  font-weight: 600;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-/* Light mode hover */
-.document-category a:hover {
-  color: #002f75;
-}
-
-/* Dark mode link */
-body.dark-mode .document-category a {
-  color: #80bfff; /* Softer blue in dark mode */
-}
-
-/* Dark mode hover */
-body.dark-mode .document-category a:hover {
-  color: #a6ceff;
-}
 
 /* --------------------------------------
    PROGRESS BAR
@@ -287,7 +243,8 @@ body.dark-mode .document-category a:hover {
   text-align: center;
   font-weight: bold;
   line-height: 35px;
-  color: #000000; /* White text stands out on dark blue */
+  color: #000000;
+  /* White text stands out on dark blue */
   z-index: 2;
 }
 
@@ -344,14 +301,18 @@ body.dark-mode .document-category a:hover {
 
 .component-blocks {
   display: flex;
-  flex-wrap: wrap;  /* Allows components to wrap to the next line if there's not enough space */
+  flex-wrap: wrap;
+  /* Allows components to wrap to the next line if there's not enough space */
   gap: 20px;
-  justify-content: space-between; /* Ensures even spacing between the boxes */
+  justify-content: space-between;
+  /* Ensures even spacing between the boxes */
 }
 
 .component {
-  flex: 1 1 23%;  /* Flex-grow: 1, flex-shrink: 1, basis: 23% for 4 items in one row */
-  min-width: 220px; /* Ensures they don’t shrink too much on smaller screens */
+  flex: 1 1 23%;
+  /* Flex-grow: 1, flex-shrink: 1, basis: 23% for 4 items in one row */
+  min-width: 220px;
+  /* Ensures they don’t shrink too much on smaller screens */
   text-align: center;
   padding: 20px;
   background-color: #f4f4f4;
@@ -369,13 +330,15 @@ body.dark-mode .document-category a:hover {
 
 @media (max-width: 1024px) {
   .component {
-    flex: 1 1 48%;  /* 2 items per row on medium screens */
+    flex: 1 1 48%;
+    /* 2 items per row on medium screens */
   }
 }
 
 @media (max-width: 768px) {
   .component {
-    flex: 1 1 100%;  /* 1 item per row on smaller screens */
+    flex: 1 1 100%;
+    /* 1 item per row on smaller screens */
   }
 }
 
@@ -499,7 +462,7 @@ body.dark-mode .document-category a:hover {
 
 .dark-mode button:hover {
   background-color: #5a5a5a00;
-  color:#4371b6;
+  color: #4371b6;
 }
 
 .dark-mode h1,
@@ -513,19 +476,24 @@ body.dark-mode .document-category a:hover {
   color: #f1f1f1 !important;
 }
 
-.get-started, .industries, .benefits, .github-cta, .feedback, .footer {
-  margin: 3rem 0;
+.get-started,
+.industries,
+.benefits,
+.github-cta,
+.feedback
+{  margin: 3rem 0;
   padding: 2rem;
-  border-radius: 12px;
   background-color: var(--section-bg);
   color: var(--text-color);
 }
 
-.supported-features, .benefit-detailed {
+.supported-features,
+.benefit-detailed {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
+
 /* Team Page Styling */
 .team-header {
   text-align: center;
@@ -549,23 +517,29 @@ body.dark-mode .document-category a:hover {
   text-align: center;
   margin-bottom: 20px;
 }
+
 /* General Grid for Team Members (2x2) */
 .team-grid {
   display: grid;
   gap: 50px;
-  grid-template-columns: repeat(2, 1fr); /* Two columns for team members */
+  grid-template-columns: repeat(2, 1fr);
+  /* Two columns for team members */
   justify-content: center;
   padding: 0 10px;
+
+
 }
 
 /* Single Column for Supervisors */
 .team-section:first-of-type .team-grid {
-  grid-template-columns: repeat(3, 1fr); /* Three columns for supervisors */
+  grid-template-columns: repeat(3, 1fr);
+  /* Three columns for supervisors */
 }
 
 @media (max-width: 768px) {
   .team-grid {
-    grid-template-columns: repeat(1, 1fr); /* One column for smaller screens */
+    grid-template-columns: repeat(1, 1fr);
+    /* One column for smaller screens */
   }
 }
 
@@ -582,7 +556,8 @@ body.dark-mode .document-category a:hover {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 5px; /* Less round than a circle */
+  border-radius: 5px;
+  /* Less round than a circle */
   margin-bottom: 15px;
   border: 3px solid var(--primary-color, #0000009c);
 }
@@ -679,17 +654,20 @@ button {
   padding: 12px 20px;
   margin: 5px;
   border: none;
-  background-color: transparent; /* Improved: Inherit background */
+  background-color: transparent;
+  /* Improved: Inherit background */
   color: #000000;
   cursor: pointer;
   border-radius: 8px;
   font-size: 22px;
   font-weight: 500;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Added transition */
 }
 
 button:hover {
-  background-color: rgba(0, 83, 179, 0.1); /* Improved: Subtle hover effect */
+  background-color: rgba(0, 83, 179, 0.1);
+  /* Improved: Subtle hover effect */
   color: #00308f;
 }
 
@@ -698,7 +676,8 @@ body.dark-mode button {
 }
 
 body.dark-mode button:hover {
-  background-color: rgba(138, 180, 248, 0.1); /* Improved: Subtle dark mode hover */
+  background-color: rgba(138, 180, 248, 0.1);
+  /* Improved: Subtle dark mode hover */
   color: #8ab4f8;
 }
 
@@ -713,8 +692,10 @@ body.dark-mode button:hover {
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  display: flex; /* Improved: For alignment */
-  justify-content: center; /* Improved: Center items */
+  display: flex;
+  /* Improved: For alignment */
+  justify-content: center;
+  /* Improved: Center items */
 }
 
 body.dark-mode .nav {
@@ -731,21 +712,25 @@ body.dark-mode .nav {
 }
 
 .nav-panel button {
-  padding: 10px 15px; /* Adjusted button padding in nav */
+  padding: 10px 15px;
+  /* Adjusted button padding in nav */
   margin: 5px;
   border: none;
   background-color: transparent;
   color: #000000;
   cursor: pointer;
-  border-radius: 6px; /* Slightly smaller for nav */
-  font-size: 18px; /* Adjusted font size in nav */
+  border-radius: 6px;
+  /* Slightly smaller for nav */
+  font-size: 18px;
+  /* Adjusted font size in nav */
   font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-panel button:hover,
 .nav-panel button.active {
-  background-color: rgba(0, 83, 179, 0.15); /* Improved hover/active */
+  background-color: rgba(0, 83, 179, 0.15);
+  /* Improved hover/active */
   color: #0043a1;
   font-weight: bold;
 }
@@ -762,7 +747,8 @@ body.dark-mode .nav-panel button.active {
 
 .nav-panel a img {
   margin: 5px;
-  max-height: 40px; /* Improved: Control image size */
+  max-height: 40px;
+  /* Improved: Control image size */
 }
 
 /* --------------------------------------
@@ -770,18 +756,21 @@ body.dark-mode .nav-panel button.active {
 -------------------------------------- */
 .content {
   width: 100%;
-  height: calc(100vh - 60px); /* Improved: Adjusted height based on combined nav/footer */
+  height: calc(100vh - 20px);
+  /* Improved: Adjusted height based on combined nav/footer */
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
+  padding: 2px;
   background-color: transparent;
 }
 
 .content iframe {
-  width: 98%; /* Improved: Slightly wider */
+  width: 98%;
+  /* Improved: Slightly wider */
   height: 100%;
-  border: 1px solid #b6c6ff; /* Improved: Thinner border */
+  border: 1px solid #b6c6ff;
+  /* Improved: Thinner border */
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -797,17 +786,20 @@ body.dark-mode .content iframe {
    FOOTER
 -------------------------------------- */
 .footer {
-  background-color: #e2eaff; /* Improved: Same as nav */
-  border-top: 2px solid #b6c6ff; /* Improved: Matching border */
-  padding: 15px 0; /* Improved: Same padding as nav */
+  /* Improved: Same padding as nav */
   text-align: center;
   font-size: 0.9rem;
+  background-color: #e2eaff;
+  border-bottom: 2px solid #b6c6ff;
 }
 
 body.dark-mode .footer {
-  background-color: #1c1f3a; /* Improved: Same as dark nav */
-  border-top: 2px solid #4a507b; /* Improved: Matching dark border */
-  color: #e4e4e4; /* Improved: Dark mode text color */
+  background-color: #1c1f3a;
+  /* Improved: Same as dark nav */
+  border-top: 2px solid #4a507b;
+  /* Improved: Matching dark border */
+  color: #e4e4e4;
+  /* Improved: Dark mode text color */
 }
 
 .footer-links {
@@ -817,7 +809,8 @@ body.dark-mode .footer {
 .footer-links a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #0051cc; /* Improved: Consistent link color */
+  color: #0051cc;
+  /* Improved: Consistent link color */
   transition: color 0.2s ease;
 }
 
@@ -827,7 +820,8 @@ body.dark-mode .footer {
 }
 
 body.dark-mode .footer-links a {
-  color: #8ab4f8; /* Improved: Dark mode link color */
+  color: #8ab4f8;
+  /* Improved: Dark mode link color */
 }
 
 body.dark-mode .footer-links a:hover {
@@ -838,12 +832,8 @@ body.dark-mode .footer-links a:hover {
    CONTAINER
 -------------------------------------- */
 .container {
-  background-color: transparent;
   padding: 20px;
-  max-width: 95%;
-  margin: 2px auto;
-  border-radius: 1px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+;
 }
 
 section {
@@ -905,13 +895,19 @@ body.dark-mode .project-table tr:nth-child(even) {
    DOCUMENT CATEGORY STYLES
 -------------------------------------- */
 .document-category {
-  background-color: transparent; /* Improved: Inherit background */
+  background-color: transparent;
+  /* Improved: Inherit background */
   text-align: center;
   margin: 30px;
   font-size: 20px;
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 6px;
+
+
+  /* Add transparency with an overlay using background-blend-mode */
+  background-color: rgba(255, 255, 255, 0.836); /* Light transparent overlay */
+  background-blend-mode:lighten;
 }
 
 /* Light mode link */
@@ -931,12 +927,20 @@ body.dark-mode .project-table tr:nth-child(even) {
 
 /* Dark mode link */
 body.dark-mode .document-category a {
-  color: #80bfff; /* Softer blue in dark mode */
+  color: #80bfff;
+  /* Softer blue in dark mode */
 }
 
 /* Dark mode hover */
 body.dark-mode .document-category a:hover {
   color: #a6ceff;
+}
+/* Dark mode background replacement without image */
+body.dark-mode .document-category {
+  background-image: none;
+  background-color: rgba(30, 30, 46, 0.85); /* Deep bluish overlay */
+  background-blend-mode: normal;
+  color: #f0f0f0; /* Light text for readability */
 }
 
 /* --------------------------------------
@@ -959,7 +963,7 @@ body.dark-mode .document-category a:hover {
 }
 
 .progress-fill {
-  background-color: #00c510;
+  background-color: #007720;
   height: 100%;
   transition: width 0.5s ease-in-out;
   position: absolute;
@@ -974,7 +978,8 @@ body.dark-mode .document-category a:hover {
   text-align: center;
   font-weight: bold;
   line-height: 35px;
-  color: #000000; /* White text stands out on dark blue */
+  color: #000000;
+  /* White text stands out on dark blue */
   z-index: 2;
 }
 
@@ -993,9 +998,17 @@ body.dark-mode .progress-label {
 
 /* --------------------------------------
    HOME PAGE STYLES
--------------------------------------- */
+   */
 .home-banner {
-  background: linear-gradient(135deg, #e6f0ff00, #e6ffe600); /* light mode gradient */
+  background-image: url('../images/homebanner.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Add transparency with an overlay using background-blend-mode */
+  background-color: rgba(255, 255, 255, 0.836); /* Light transparent overlay */
+  background-blend-mode:lighten;
+
   padding: 60px 30px;
   border-radius: 16px;
   margin: 40px auto;
@@ -1003,20 +1016,23 @@ body.dark-mode .progress-label {
 }
 
 body.dark-mode .home-banner {
-  background: linear-gradient(135deg, #1e1e2f, #1a3320); /* dark mode gradient */
+  background: linear-gradient(135deg, #1e1e2f, #1a3320);
+  /* dark mode gradient */
   color: #f0f0f0;
 }
 
 .home-banner h1 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  text-align: center; /* Improved: Center heading */
+  text-align: center;
+  /* Improved: Center heading */
 }
 
 .home-banner p {
   font-size: 1.2rem;
   color: #333;
-  text-align: center; /* Improved: Center paragraph */
+  text-align: center;
+  /* Improved: Center paragraph */
 }
 
 body.dark-mode .home-banner p {
@@ -1077,7 +1093,8 @@ body.dark-mode .home-banner p {
   border: 1px solid #ddd;
   border-radius: 8px;
   transition: background-color 0.3s ease;
-  text-align: center; /* Improved: Center content */
+  text-align: center;
+  /* Improved: Center content */
 }
 
 .component:hover {
@@ -1145,21 +1162,26 @@ body.dark-mode .industry {
 }
 
 
-.get-started, .industries, .benefits, .github-cta, .feedback, .footer {
+.get-started,
+.industries,
+.benefits,
+.github-cta,
+.feedback {
   margin: 3rem 0;
   padding: 2rem;
-  border-radius: 12px;
   background-color: var(--section-bg);
   color: var(--text-color);
 }
 
-.supported-features, .benefit-detailed {
+.supported-features,
+.benefit-detailed {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.feature, .benefit-box {
+.feature,
+.benefit-box {
   flex: 1 1 30%;
   background: var(--box-bg);
   padding: 1rem;
@@ -1186,7 +1208,7 @@ body.dark-mode .industry {
   border-radius: 10px;
   background: var(--box-bg);
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .github-button {
@@ -1205,7 +1227,8 @@ body.dark-mode .industry {
   gap: 1rem;
 }
 
-.feedback input, .feedback textarea {
+.feedback input,
+.feedback textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -1218,15 +1241,6 @@ body.dark-mode .industry {
   border: none;
   border-radius: 6px;
 }
-
-.footer {
-  text-align: center;
-  font-size: 0.9rem;
-  border-top: 1px solid #ccc;
-  padding: 1rem;
-  background-color: var(--footer-bg);
-}
-
 .footer-links {
   margin-top: 0.5rem;
 }
@@ -1236,12 +1250,15 @@ body.dark-mode .industry {
   text-decoration: none;
   color: #888;
 }
+
 /* Industries Section */
 
 .industry-img {
-  width: 150px;  /* Adjust the size of the image */
+  width: 150px;
+  /* Adjust the size of the image */
   height: 150px;
-  object-fit: contain;  /* Ensure the image scales correctly */
+  object-fit: contain;
+  /* Ensure the image scales correctly */
   margin-bottom: 15px;
 }
 
@@ -1265,8 +1282,8 @@ body.dark-mode .industry {
 
 /* Style for the button */
 #showFormBtn {
-  background-color: #0043a1;
-  color: #fff;
+  background-color: #ffffff00;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -1276,9 +1293,24 @@ body.dark-mode .industry {
 }
 
 #showFormBtn:hover {
-  background-color: #00368d;
+  background-color: #ffffff00;
+  color: #aa0000;
   transform: scale(1.05);
 }
+
+/* Dark mode style for the button */
+body.dark-mode #showFormBtn {
+  background-color: #00000000; /* transparent */
+  color: #ffffff;
+  border: none;
+}
+
+body.dark-mode #showFormBtn:hover {
+  background-color: #00000000; /* still transparent */
+  color: #ff5555; /* subtle red tint for hover */
+  transform: scale(1.05);
+}
+
 
 #showFormBtn:focus {
   outline: none;
@@ -1296,3 +1328,6 @@ body.dark-mode .industry {
   border: none;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
+
+
+
