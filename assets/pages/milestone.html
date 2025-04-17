@@ -1,61 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
-    <link rel="stylesheet" href="../styles/style.css">
-    
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <title>Scope - FL Framework</title>
+
+  <script>
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
+
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+  </script>
 </head>
 <body>
+  <section class="container">
+    <h2>Project Milestones</h2>
 
-    <!-- Milestones Section -->
-    <div class="milestones-section">
-        <h2>Project Milestones</h2>
+    <!-- Milestones Table -->
+    <table class="milestones-table">
+      <thead>
+        <tr>
+          <th>Milestone</th>
+          <th>Description</th>
+          <th>Marks Allocated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Proposal</td>
+          <td>Proposal presentation and the proposal report submission.</td>
+          <td>12%</td>
+        </tr>
+        <tr>
+          <td>Progress Presentation 1</td>
+          <td>50% progress presentation of the research project.</td>
+          <td>15%</td>
+        </tr>
+        <tr>
+          <td>Progress Presentation 2</td>
+          <td>90% progress presentation of the research project.</td>
+          <td>18%</td>
+        </tr>
+        <tr>
+          <td>Demonstration</td>
+          <td>Submission and presentation of the camera-ready research poster.</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td>Final Assessment</td>
+          <td>Submission of final reports and the final presentation of the research.</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td>Viva</td>
+          <td>Final viva of the research, commercialization video with user testing, and research team members.</td>
+          <td>10%</td>
+        </tr>
+      </tbody>
+    </table>
 
-        <!-- Milestones Table -->
-        <table class="milestones-table">
-            <thead>
-                <tr>
-                    <th>Milestone</th>
-                    <th>Description</th>
-                    <th>Marks Allocated</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Proposal</td>
-                    <td>Proposal presentation and the proposal report submission.</td>
-                    <td>12%</td>
-                </tr>
-                <tr>
-                    <td>Progress Presentation 1</td>
-                    <td>50% progress presentation of the research project.</td>
-                    <td>15%</td>
-                </tr>
-                <tr>
-                    <td>Progress Presentation 2</td>
-                    <td>90% progress presentation of the research project.</td>
-                    <td>18%</td>
-                </tr>
-                <tr>
-                    <td>Demonstration</td>
-                    <td>Submission and presentation of the camera-ready research poster.</td>
-                    <td>10%</td>
-                </tr>
-                <tr>
-                    <td>Final Assessment</td>
-                    <td>Submission of final reports and the final presentation of the research.</td>
-                    <td>10%</td>
-                </tr>
-                <tr>
-                    <td>Viva</td>
-                    <td>Final viva of the research, commercialization video with user testing, and research team members.</td>
-                    <td>10%</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+    <!-- Horizontal Timeline Map -->
+    <div class="timeline-container">
+        <div class="timeline">
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Start</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Proposal</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Progress 1</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Progress 2</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Demo</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Final Report</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">Viva</div>
+          </div>
+          <div class="milestone-node">
+            <div class="circle-dot"></div>
+            <div class="milestone-label">End</div>
+          </div>
+        </div>
+      </div>
+      
+  </section>
 </body>
 </html>

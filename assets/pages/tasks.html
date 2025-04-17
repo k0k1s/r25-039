@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Tasks - Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
-    <link rel="stylesheet" href="../styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Tasks - Data-Privacy Focused Federated Learning Framework for Industrial IoT</title>
+  <link rel="stylesheet" href="../styles/style.css" />
 
+  <script>
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
+
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+  </script>
 </head>
 <body>
 
-    <!-- Tasks Section -->
-    <div class="tasks-section">
-        <h2>Project Tasks</h2>
+  <!-- Tasks Section -->
+  <div class="tasks-section">
+    <h2>Project Tasks</h2>
 
-        <!-- Tasks Table -->
-        <table class="tasks-table">
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Assigned To</th>
-                    <th>Deadline</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Federated Learning simulation</td>
-                    <td>Team</td>
-                    <td>March 30, 2025</td>
-                    <td>In Progress</td>
-                </tr>
-                <tr>
-                    <td>Attack Detection and Resilience Implementation</td>
-                    <td>Mendis H.R.M</td>
-                    <td>March 30, 2025</td>
-                    <td>In Progress</td>
-                </tr>
-                <tr>
-                    <td>Privacy Preservation Techniques Implementation</td>
-                    <td>Mendis H.R.M</td>
-                    <td>April 15, 2025</td>
-                    <td>Not Started</td>
-                </tr>
-                <tr>
-                    <td>Secure Aggregation Implementation</td>
-                    <td>Weerasinghe K.M</td>
-                    <td>April 30, 2025</td>
-                    <td>Not Started</td>
-                </tr>
-                <tr>
-                    <td>Secure Communication Setup (TLS 1.3)</td>
-                    <td>Dissanayaka K.D.A.R.A</td>
-                    <td>May 15, 2025</td>
-                    <td>Not Started</td>
-                </tr>
-                <tr>
-                    <td>System Integration and Testing</td>
-                    <td>All Members</td>
-                    <td>May 30, 2025</td>
-                    <td>Pending</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <!-- Tasks Table -->
+    <table class="tasks-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Federated Learning simulation</td>
+          <td>Team</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>Attack Detection and Resilience Implementation</td>
+          <td>Nanayakkara Y.D.T.D</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>Privacy Preservation Techniques Implementation</td>
+          <td>Mendis H.R.M</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>Secure Aggregation Implementation</td>
+          <td>Weerasinghe K.M</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>Secure Communication, control and command</td>
+          <td>Dissanayaka K.D.A.R.A</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>System Integration and Testing</td>
+          <td>All Members</td>
+          <td>Pending</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </body>
 </html>

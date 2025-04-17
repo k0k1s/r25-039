@@ -38,7 +38,7 @@
       <div class="progress-bar-wrapper">
         <div class="progress-bar">
           <div class="progress-fill" style="width: 40%;"></div>
-          <span class="progress-label">40%</span>
+          <span class="progress-label"></span>
         </div>
       </div>
     </section>
@@ -49,11 +49,6 @@
       <a href="https://k0k1s.github.io/r25-039" target="_blank">Visit Documentation</a>
     </section>
 
-    <!-- Architecture Image Section -->
-    <section class="architecture">
-      <h1>Architecture</h1>
-      <img src="../images/architecture.jpg" alt="System Architecture" class="architecture-image">
-    </section>
 
     <!-- Importance Section -->
     <section class="importance">
@@ -61,29 +56,27 @@
       <p>Federated Learning frameworks enhance data privacy by processing data locally. This reduces the risk of sensitive data exposure.</p>
     </section>
 
-<!-- Core Components Section -->
-<section class="components">
-  <h2>Core Components</h2>
-  <div class="component-blocks">
-    <div class="component">
-      <h3>Attack Detection & Resilience</h3>
-      <p>Mitigate model poisoning and Byzantine attacks using anomaly detection techniques. This component ensures the integrity of the federated learning system by identifying abnormal updates and preventing malicious contributions.</p>
-    </div>
-    <div class="component">
-      <h3>Privacy Preservation</h3>
-      <p>Implement techniques like differential privacy, homomorphic encryption, and regular privacy audits to protect user data and prevent privacy breaches during model training and communication.</p>
-    </div>
-    <div class="component">
-      <h3>Secure Aggregation</h3>
-      <p>Utilize Shamir’s Secret Sharing and threshold cryptography to securely aggregate model updates from multiple clients. This ensures that no individual client’s data is exposed during the aggregation process.</p>
-    </div>
-    <div class="component">
-      <h3>Secure C2 Communication</h3>
-      <p>Establish secure communication channels between clients and the server using TLS 1.3, HMAC, and mutual authentication. This ensures that data transmission is secure and resistant to eavesdropping and tampering.</p>
-    </div>
-  </div>
-</section>
-
+    <section class="components">
+      <h2>Core Components</h2>
+      <div class="component-blocks">
+        <div class="component attack-defense">
+          <h3>Attack Detection & Resilience</h3>
+          <p>Mitigate model poisoning and Byzantine attacks using anomaly detection techniques. This component ensures the integrity of the federated learning system by identifying abnormal updates and preventing malicious contributions.</p>
+        </div>
+        <div class="component privacy-preservation">
+          <h3>Privacy Preservation</h3>
+          <p>Implement techniques like differential privacy, homomorphic encryption, and regular privacy audits to protect user data and prevent privacy breaches during model training and communication.</p>
+        </div>
+        <div class="component secure-aggregation">
+          <h3>Secure Aggregation</h3>
+          <p>Utilize Shamir’s Secret Sharing and threshold cryptography to securely aggregate model updates from multiple clients. This ensures that no individual client’s data is exposed during the aggregation process.</p>
+        </div>
+        <div class="component secure-c2">
+          <h3>Secure C2 Communication</h3>
+          <p>Establish secure communication channels between clients and the server using TLS 1.3, HMAC, and mutual authentication. This ensures that data transmission is secure and resistant to eavesdropping and tampering.</p>
+        </div>
+      </div>
+    </section>
 
 
     <!-- 🌟 Get Started Section -->

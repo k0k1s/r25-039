@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation & Projects</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <style>
-        .custom-button {
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            color: white;
-            margin: 5px;
-        }
-        .red-button { background-color: rgb(167, 99, 99); }
-        .blue-button { background-color: #0077b5; }
-    </style>
+    
     <script>
+         function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
+
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+    
         function loadPDF(documentId, containerId) {
             var pdfLinks = {
                 'Project Charter': '../documents/R25 - 039 - IT4010-charter form - 2025.pdf',
@@ -47,13 +54,13 @@
             var iframe = document.createElement('iframe');
             iframe.src = pdfLinks[documentId];
             iframe.width = "100%";
-            iframe.height = "500px";
+            iframe.height = "600px";
             iframe.frameBorder = "0";
             container.appendChild(iframe);
 
             var closeButton = document.createElement('button');
             closeButton.innerText = "Close PDF";
-            closeButton.className = "custom-button red-button"; 
+            closeButton.className = "custom-button red-button";
             closeButton.onclick = function() {
                 container.innerHTML = "";
             };
@@ -63,7 +70,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Documents</h1>
+        <h1>Documentation & Project Resources</h1>
 
         <div class="document-category">
             <h2>Project Charter</h2>

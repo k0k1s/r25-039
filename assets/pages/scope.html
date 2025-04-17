@@ -4,16 +4,52 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/style.css" />
   <title>Scope - FL Framework</title>
+  <script>
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
+
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+  </script>
 </head>
 <body>
   <section class="container">
-    <h2>Project Scope</h2>
-    <ul>
-      <li>Deploy Federated Learning for real-time IIoT environments.</li>
-      <li>Build modular privacy-preserving and secure communication models.</li>
-      <li>Implement continuous anomaly detection and adaptive model switching.</li>
-      <li>Ensure scalability and resilience in adversarial settings.</li>
-    </ul>
+    <!-- 🌟 Get Started Section -->
+    <section class="get-started">
+      <h2>Get Started with the Framework</h2>
+      <p>Follow these simple steps to integrate our privacy-preserving FL system into your workflow.</p>
+
+      <div class="supported-features">
+        <div class="feature">✔️ Secure Aggregation</div>
+        <div class="feature">✔️ Attack Detection</div>
+        <div class="feature">✔️ Privacy Preservation</div>
+        <div class="feature">✔️ Encryption Protocols</div>
+        <div class="feature">✔️ Adaptive Learning</div>
+        <div class="feature">✔️ Modular Design</div>
+      </div>
+
+      <div class="steps-progress">
+        <div class="step">Step 1: Setup Environment</div>
+        <div class="step">Step 2: Connect Clients</div>
+        <div class="step">Step 3: Configure Aggregator</div>
+        <div class="step">Step 4: Launch Training</div>
+        <div class="step">Step 5: Monitor & Adapt</div>
+      </div>
+    </section>
+
   </section>
 </body>
 </html>

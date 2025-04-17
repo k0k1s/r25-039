@@ -1,67 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="../styles/style.css" />
-  <title>About - FL Framework</title>
-</head>
-<body>
-  <section class="about-section">
-    <h2>About the Project</h2>
-    <p>This project aims to develop a <strong>Data-Privacy Focused Federated Learning Framework</strong> for the <strong>Industrial Internet of Things (IIoT)</strong>. It tackles challenges including attack detection, privacy protection, and secure model updates in decentralized environments.</p>
-
-    <table class="project-table">
-      <thead>
-        <tr>
-          <th>Component</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Attack Detection & Resilience</td>
-          <td>Mitigate model poisoning and Byzantine attacks using anomaly detection.</td>
-        </tr>
-        <tr>
-          <td>Privacy Preservation</td>
-          <td>Apply differential privacy, homomorphic encryption, and audits.</td>
-        </tr>
-        <tr>
-          <td>Secure Aggregation</td>
-          <td>Use Shamir’s Secret Sharing and threshold cryptography for updates.</td>
-        </tr>
-        <tr>
-          <td>Secure C2 Communication</td>
-          <td>Establish TLS 1.3, HMAC, and mutual authentication channels.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles/style.css">
+  <title>About - Data Privacy FL Framework</title>
   <script>
-    function syncDarkModeFromParent() {
-        try {
-            if (window.parent.document.body.classList.contains('dark-mode')) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-
-            // Also apply to any nested iframe inside this iframe
-            const nestedIframes = document.querySelectorAll('iframe');
-            nestedIframes.forEach(iframe => {
-                iframe.contentWindow.postMessage({
-                    type: 'theme',
-                    darkMode: document.body.classList.contains('dark-mode')
-                }, '*');
-            });
-
-        } catch (e) {
-            console.warn("Cannot apply dark mode from parent:", e);
-        }
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
     }
 
-    window.addEventListener('load', syncDarkModeFromParent);
-</script>
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.theme) {
+        setTheme(event.data.theme);
+      }
+    });
 
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'enabled') {
+      setTheme('dark');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+
+<!-- Core Components Section -->
+<section class="components">
+  <h2>About our system</h2>
+  <div class="component-blocks">
+    <div class="component">
+      <p>
+
+        Our Federated Learning System Framework is designed to enhance the privacy, security, and resilience of machine learning models in distributed environments. 
+      </p>
+    </br>
+      By integrating four core components—Attack Detection & Resilience, Privacy Preservation, Secure Aggregation, and Secure C2 Communication—this framework ensures the integrity of the learning process, protects sensitive data, and secures communication between clients and the server. With advanced techniques like anomaly detection, differential privacy, homomorphic encryption, and threshold cryptography, the system provides robust solutions against adversarial attacks, privacy breaches, and data exposure risks, making it ideal for industrial IoT applications and other privacy-sensitive use cases.
+      
+      </p>
+
+          <!-- Architecture Image Section -->
+    <section class="architecture">
+      <h1>Architecture</h1>
+      <img src="../images/architecture.jpg" alt="System Architecture" class="architecture-image">
+    </section>
+
+    <!-- Core Components Section -->
+  <div class="component-blocks">
+    <div class="component attack-defense">
+      <h3>Attack Detection & Resilience</h3>
+      <div class="key-points">
+        <ul>
+          <li>Detects poisoning and Byzantine attacks</li>
+          <li>Anomaly detection techniques: integrity checks</li>
+          <li>Prevents malicious model updates</li>
+          <li>Ensures federated learning robustness</li>
+        </ul>
+      </div>
+      <p>Mitigate model poisoning and Byzantine attacks using anomaly detection techniques. This component ensures the integrity of the federated learning system by identifying abnormal updates and preventing malicious contributions.</p>
+    </div>
+    <div class="component secure-c2">
+      <h3>Secure C3</h3>
+      <div class="key-points">
+        <ul>
+          <li>Uses TLS 1.3 for secure communication</li>
+          <li>Applies HMAC for message authentication</li>
+          <li>Mutual authentication between clients and server</li>
+          <li>Prevents eavesdropping and tampering</li>
+        </ul>
+      </div>
+      <p>Establish secure communication channels between clients and the server using TLS 1.3, HMAC, and mutual authentication. This ensures that data transmission is secure and resistant to eavesdropping and tampering.</p>
+    </div>
+    <div class="component privacy-preservation">
+      <h3>Privacy Preservation</h3>
+      <div class="key-points">
+        <ul>
+          <li>Implement differential privacy techniques</li>
+          <li>Utilize homomorphic encryption</li>
+          <li>Conduct regular privacy audits</li>
+          <li>Ensure data protection during communication</li>
+        </ul>
+      </div>
+      <p>Implement techniques like differential privacy, homomorphic encryption, and regular privacy audits to protect user data and prevent privacy breaches during model training and communication.</p>
+    </div>
+    <div class="component secure-aggregation">
+      <h3>Secure Aggregation</h3>
+      <div class="key-points">
+        <ul>
+          <li>Utilizes Shamir’s Secret Sharing</li>
+          <li>Applies threshold cryptography</li>
+          <li>Protects individual client data during aggregation</li>
+          <li>Prevents data exposure through secure aggregation</li>
+        </ul>
+      </div>
+      <p>Utilize Shamir’s Secret Sharing and threshold cryptography to securely aggregate model updates from multiple clients. This ensures that no individual client’s data is exposed during the aggregation process.</p>
+    </div>
+    
+</section>
+
+
+    </div>
+
+  </div>
+</section>
+  </div>
 </body>
 </html>
