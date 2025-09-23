@@ -51,20 +51,27 @@
 
             container.innerHTML = ""; // Clear previous content
 
+            // Create the iframe for the PDF
             var iframe = document.createElement('iframe');
             iframe.src = pdfLinks[documentId];
             iframe.width = "100%";
             iframe.height = "600px";
             iframe.frameBorder = "0";
-            container.appendChild(iframe);
 
+            // Create the close button
             var closeButton = document.createElement('button');
             closeButton.innerText = "Close PDF";
             closeButton.className = "custom-button red-button";
             closeButton.onclick = function() {
                 container.innerHTML = "";
             };
+            
+            // --- THE FIX ---
+            // Append the close button FIRST, so it appears above the PDF.
             container.appendChild(closeButton);
+
+            // Then, append the iframe.
+            container.appendChild(iframe);
         }
     </script>
 </head>

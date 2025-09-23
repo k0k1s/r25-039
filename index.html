@@ -1,93 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Federated Learning for Industrial IoT – Data Privacy Framework</title>
-  <link rel="stylesheet" href="./assets/styles/style.css" />
-  <script>
-    function toggleDarkMode() {
-      const body = document.body;
-      const isDark = body.classList.toggle('dark-mode');
-      const icon = document.getElementById('theme-switch-icon');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Federated Learning for Industrial IoT – Data Privacy Framework
+    </title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script>
+      function toggleDarkMode() {
+        const body = document.body;
+        const isDark = body.classList.toggle("dark-mode");
+        const icon = document.getElementById("theme-switch-icon");
 
-      icon.src = isDark ? './assets/images/switch-dark.svg' : './assets/images/switch-light.svg';
-      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        icon.src = isDark
+          ? "./assets/images/switch-dark.svg"
+          : "./assets/images/switch-light.svg";
+        localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
 
-      const iframe = document.getElementById('contentFrame');
-      iframe.contentWindow.postMessage({ theme: isDark ? 'dark' : 'light' }, '*');
-    }
-
-    function applySavedTheme() {
-      const savedTheme = localStorage.getItem('darkMode');
-      const isDark = savedTheme === 'enabled';
-
-      if (isDark) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-switch-icon').src = './assets/images/switch-dark.svg';
+        const iframe = document.getElementById("contentFrame");
+        iframe.contentWindow.postMessage(
+          { theme: isDark ? "dark" : "light" },
+          "*"
+        );
       }
 
-      window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-          const iframe = document.getElementById('contentFrame');
-          iframe.contentWindow.postMessage(
-            { theme: isDark ? 'dark' : 'light' },
-            '*'
-          );
-        }, 300);
-      });
-    }
+      function applySavedTheme() {
+        const savedTheme = localStorage.getItem("darkMode");
+        const isDark = savedTheme === "enabled";
 
-  function loadContent(page) {
-    const iframe = document.getElementById('contentFrame');
-    iframe.src = page;
-    iframe.onload = () => {
-      const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-      iframe.contentWindow.postMessage({ theme }, '*');
-    };
+        if (isDark) {
+          document.body.classList.add("dark-mode");
+          document.getElementById("theme-switch-icon").src =
+            "./assets/images/switch-dark.svg";
+        }
 
-    // Highlight the active button
-    const buttons = document.querySelectorAll('.nav-panel button');
-    buttons.forEach(btn => btn.classList.remove('active'));
+        window.addEventListener("DOMContentLoaded", () => {
+          setTimeout(() => {
+            const iframe = document.getElementById("contentFrame");
+            iframe.contentWindow.postMessage(
+              { theme: isDark ? "dark" : "light" },
+              "*"
+            );
+          }, 300);
+        });
+      }
 
-    const clickedButton = Array.from(buttons).find(btn => btn.getAttribute('onclick')?.includes(page));
-    if (clickedButton) {
-      clickedButton.classList.add('active');
-    }
-  }
-</script>
+      function loadContent(page) {
+        const iframe = document.getElementById("contentFrame");
+        iframe.src = page;
+        iframe.onload = () => {
+          const theme = document.body.classList.contains("dark-mode")
+            ? "dark"
+            : "light";
+          iframe.contentWindow.postMessage({ theme }, "*");
+        };
 
-</head>
-<body onload="applySavedTheme();">
-  <header class="nav">
-    <nav class="nav-panel">
-      <button onclick="loadContent('./assets/pages/home.html')">Introduction</button>
-      <button onclick="loadContent('./assets/pages/about.html')">About</button>
-      <button onclick="loadContent('./assets/pages/scope.html')">Scope</button>
-      <button onclick="loadContent('./assets/pages/milestone.html')">Milestones</button>
-      <button onclick="loadContent('./assets/pages/tasks.html')">Tasks</button>
-      <button onclick="loadContent('./assets/pages/documents.html')">Documentation</button>
-      <button onclick="loadContent('./assets/pages/team.html')">Team</button>
-      <a href="#" onclick="toggleDarkMode()" aria-label="Toggle Theme">
-        <img id="theme-switch-icon" src="./assets/images/switch-light.svg" alt="Toggle Theme" width="40" height="40"/>
-      </a>
-    </nav>
-  </header>
+        // Highlight the active button
+        const buttons = document.querySelectorAll(".nav-panel button");
+        buttons.forEach((btn) => btn.classList.remove("active"));
 
-  <main class="content">
-    <iframe id="contentFrame" src="./assets/pages/home.html" frameborder="0" title="Content Frame"></iframe>
-  </main>
-        <!-- 🔚 Footer Section -->
-        <footer class="footer">
-          <div class="footer-content">
-            <div class="footer-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Use</a>
-              <a href="#">Contact</a>
-              <p>&copy; Research Project - 2025</p>
-            </div>
-          </div>
-        </footer>
+        const clickedButton = Array.from(buttons).find((btn) =>
+          btn.getAttribute("onclick")?.includes(page)
+        );
+        if (clickedButton) {
+          clickedButton.classList.add("active");
+        }
+      }
+    </script>
+  </head>
+  <body onload="applySavedTheme();">
+    <header class="nav">
+      <nav class="nav-panel">
+        <img 
+          src="./assets/images/canopy.png" 
+          height="55px" 
+          alt="Canopy FL Logo" 
+          id="nav-logo"
+          onclick="loadContent('./assets/pages/home.html')" 
+        />
 
-</body>
+        <div class="nav-links">
+          <button onclick="loadContent('./assets/pages/about.html')">About</button>
+          <button onclick="loadContent('./assets/pages/scope.html')">Scope</button>
+          <button onclick="loadContent('./assets/pages/milestone.html')">Milestones</button>
+          <button onclick="loadContent('./assets/pages/tasks.html')">Tasks</button>
+          <button onclick="loadContent('./assets/pages/documents.html')">Docs</button>
+          <button onclick="loadContent('./assets/pages/team.html')">Team</button>
+          
+          <a href="#" onclick="toggleDarkMode()" aria-label="Toggle Theme">
+            <img
+              id="theme-switch-icon"
+              src="./assets/images/switch-light.svg"
+              alt="Toggle Theme"
+              width="40"
+              height="40"
+            />
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="content">
+      <iframe
+        id="contentFrame"
+        src="./assets/pages/home.html"
+        frameborder="0"
+        title="Content Frame"
+      ></iframe>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact</a>
+          <p>&copy; Research Project - 2025</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

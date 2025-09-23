@@ -1,0 +1,171 @@
+/*
+======================================================
+   ABOUT PAGE STYLES
+======================================================
+*/
+
+/* --------------------------------------
+   GLOBAL VARIABLES & BASE STYLES
+-------------------------------------- */
+:root {
+  --primary-color: #005f73;
+  --secondary-color: #0a9396;
+  --light-bg: #ffffff;
+  --light-surface: #f8f9fa;
+  --dark-bg: #0d1b2a;
+  --dark-surface: #1b263b;
+  --light-text: #e0e1dd;
+  --dark-text: #001219;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+body {
+  font-family: var(--font-body, sans-serif);
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  line-height: 1.7;
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading, sans-serif);
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+    color: var(--light-text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* --------------------------------------
+   HEADER & ARCHITECTURE
+-------------------------------------- */
+.about-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.about-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+.about-header p {
+    font-size: 1.1rem;
+    max-width: 70ch;
+    margin: 0 auto;
+    color: #6c757d;
+}
+body.dark-mode .about-header p {
+    color: #94a3b8;
+}
+
+.architecture {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+.architecture h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.architecture-image {
+  max-width: 100%;
+  width: 900px;
+  border-radius: 10px;
+}
+body.dark-mode .architecture-image {
+    border-color: #334155;
+}
+
+/* --------------------------------------
+   NEW COMPONENT ROW LAYOUT
+-------------------------------------- */
+.component-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem; /* Space between each component feature */
+}
+
+.component-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Alternating layout: Image on the right for even-numbered rows */
+.component-row:nth-child(even) .component-image {
+    order: 2;
+}
+
+.component-image img {
+    width: 100%;
+    border-radius: 10px;
+        object-fit: cover;
+}
+
+.component-details h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+body.dark-mode .component-details h3 {
+    color: var(--secondary-color);
+}
+
+.key-points ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.key-points li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.key-points li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+body.dark-mode .key-points li {
+    color: #adb5bd;
+}
+
+/* --------------------------------------
+   RESPONSIVE DESIGN
+-------------------------------------- */
+@media (max-width: 768px) {
+    .component-row {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        gap: 2rem;
+    }
+
+    .component-row:nth-child(even) .component-image {
+        order: -1; /* Image always on top on mobile */
+    }
+
+    .component-details {
+        text-align: center;
+    }
+
+    .key-points ul {
+        display: inline-block;
+        text-align: left;
+    }
+}

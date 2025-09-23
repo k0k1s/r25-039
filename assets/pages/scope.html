@@ -12,13 +12,11 @@
         document.body.classList.remove('dark-mode');
       }
     }
-
     window.addEventListener('message', (event) => {
       if (event.data && event.data.theme) {
         setTheme(event.data.theme);
       }
     });
-
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme === 'enabled') {
       setTheme('dark');
@@ -26,30 +24,38 @@
   </script>
 </head>
 <body>
-  <section class="container">
-    <!-- 🌟 Get Started Section -->
-    <section class="get-started">
-      <h2>Get Started with the Framework</h2>
-      <p>Follow these simple steps to integrate our privacy-preserving FL system into your workflow.</p>
+  <section class="container" style="padding-top: 4rem; text-align: center;">
+      <h2 style="margin-bottom: 1rem;">Framework Scope & Features</h2>
+      <p style="max-width: 700px; margin: 0 auto 3rem auto;">
+        Our framework encompasses a modular design supporting key privacy and security features essential for modern Federated Learning applications.
+      </p>
 
-      <div class="supported-features">
-        <div class="feature">✔️ Secure Aggregation</div>
-        <div class="feature">✔️ Attack Detection</div>
-        <div class="feature">✔️ Privacy Preservation</div>
-        <div class="feature">✔️ Encryption Protocols</div>
-        <div class="feature">✔️ Adaptive Learning</div>
-        <div class="feature">✔️ Modular Design</div>
+      <div class="component-blocks">
+          <div class="component privacy-preservation">
+            <h3>Privacy Preservation</h3>
+            <p>Techniques like differential privacy to protect data.</p>
+          </div>
+          <div class="component attack-defense">
+            <h3>Attack Detection</h3>
+            <p>Identifying and mitigating malicious client updates.</p>
+          </div>
+          <div class="component secure-aggregation">
+            <h3>Secure Aggregation</h3>
+            <p>Cryptographic methods to protect models during aggregation.</p>
+          </div>
+          <div class="component secure-c2">
+            <h3>Encryption Protocols</h3>
+            <p>End-to-end encryption for all communications.</p>
+          </div>
+          <div class="component" style="border-color: #00b4d8;">
+            <h3>Adaptive Learning</h3>
+            <p>Models that adapt to new data and threats over time.</p>
+          </div>
+          <div class="component" style="border-color: #0077b6;">
+            <h3>Modular Design</h3>
+            <p>Easily adaptable architecture for various use-cases.</p>
+          </div>
       </div>
-
-      <div class="steps-progress">
-        <div class="step">Step 1: Setup Environment</div>
-        <div class="step">Step 2: Connect Clients</div>
-        <div class="step">Step 3: Configure Aggregator</div>
-        <div class="step">Step 4: Launch Training</div>
-        <div class="step">Step 5: Monitor & Adapt</div>
-      </div>
-    </section>
-
   </section>
 </body>
 </html>

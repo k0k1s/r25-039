@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/style.css" />
-  <title>Scope - FL Framework</title>
+  <title>Milestones - FL Framework</title>
 
   <script>
     function setTheme(theme) {
@@ -13,13 +13,11 @@
         document.body.classList.remove('dark-mode');
       }
     }
-
     window.addEventListener('message', (event) => {
       if (event.data && event.data.theme) {
         setTheme(event.data.theme);
       }
     });
-
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme === 'enabled') {
       setTheme('dark');
@@ -28,9 +26,8 @@
 </head>
 <body>
   <section class="container">
-    <h2>Project Milestones</h2>
+    <h2 style="text-align: center;">Project Milestones</h2>
 
-    <!-- Milestones Table -->
     <table class="milestones-table">
       <thead>
         <tr>
@@ -73,41 +70,16 @@
       </tbody>
     </table>
 
-    <!-- Horizontal Timeline Map -->
     <div class="timeline-container">
         <div class="timeline">
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Start</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Proposal</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Progress 1</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Progress 2</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Demo</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Final Report</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">Viva</div>
-          </div>
-          <div class="milestone-node">
-            <div class="circle-dot"></div>
-            <div class="milestone-label">End</div>
-          </div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Start</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Proposal</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Progress 1</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Progress 2</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Demo</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Final Report</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Viva</div></div>
+          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">End</div></div>
         </div>
       </div>
       

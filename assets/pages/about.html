@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  
   <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="about.css">
+
   <title>About - Data Privacy FL Framework</title>
   <script>
     function setTheme(theme) {
@@ -12,13 +15,11 @@
         document.body.classList.remove('dark-mode');
       }
     }
-
     window.addEventListener('message', (event) => {
       if (event.data && event.data.theme) {
         setTheme(event.data.theme);
       }
     });
-
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme === 'enabled') {
       setTheme('dark');
@@ -27,85 +28,89 @@
 </head>
 <body>
   <div class="container">
-
-<!-- Core Components Section -->
-<section class="components">
-  <h2>About our system</h2>
-  <div class="component-blocks">
-    <div class="component">
+    <section class="about-header">
+      <h2>About Our System</h2>
       <p>
-
-        Our Federated Learning System Framework is designed to enhance the privacy, security, and resilience of machine learning models in distributed environments. 
+        Our Federated Learning System Framework is designed to enhance the privacy, security, and resilience of machine learning models in distributed environments. By integrating four core components, this framework ensures the integrity of the learning process, protects sensitive data, and secures communication.
       </p>
-    </br>
-      By integrating four core components—Attack Detection & Resilience, Privacy Preservation, Secure Aggregation, and Secure C2 Communication—this framework ensures the integrity of the learning process, protects sensitive data, and secures communication between clients and the server. With advanced techniques like anomaly detection, differential privacy, homomorphic encryption, and threshold cryptography, the system provides robust solutions against adversarial attacks, privacy breaches, and data exposure risks, making it ideal for industrial IoT applications and other privacy-sensitive use cases.
-      
-      </p>
-
-          <!-- Architecture Image Section -->
-    <section class="architecture">
-      <h1>Architecture</h1>
-      <img src="../images/architecture.jpg" alt="System Architecture" class="architecture-image">
     </section>
 
-    <!-- Core Components Section -->
-  <div class="component-blocks">
-    <div class="component attack-defense">
-      <h3>Attack Detection & Resilience</h3>
-      <div class="key-points">
-        <ul>
-          <li>Detects poisoning and Byzantine attacks</li>
-          <li>Anomaly detection techniques: integrity checks</li>
-          <li>Prevents malicious model updates</li>
-          <li>Ensures federated learning robustness</li>
-        </ul>
-      </div>
-      <p>Mitigate model poisoning and Byzantine attacks using anomaly detection techniques. This component ensures the integrity of the federated learning system by identifying abnormal updates and preventing malicious contributions.</p>
-    </div>
-    <div class="component secure-c2">
-      <h3>Secure C3</h3>
-      <div class="key-points">
-        <ul>
-          <li>Uses TLS 1.3 for secure communication</li>
-          <li>Applies HMAC for message authentication</li>
-          <li>Mutual authentication between clients and server</li>
-          <li>Prevents eavesdropping and tampering</li>
-        </ul>
-      </div>
-      <p>Establish secure communication channels between clients and the server using TLS 1.3, HMAC, and mutual authentication. This ensures that data transmission is secure and resistant to eavesdropping and tampering.</p>
-    </div>
-    <div class="component privacy-preservation">
-      <h3>Privacy Preservation</h3>
-      <div class="key-points">
-        <ul>
-          <li>Implement differential privacy techniques</li>
-          <li>Utilize homomorphic encryption</li>
-          <li>Conduct regular privacy audits</li>
-          <li>Ensure data protection during communication</li>
-        </ul>
-      </div>
-      <p>Implement techniques like differential privacy, homomorphic encryption, and regular privacy audits to protect user data and prevent privacy breaches during model training and communication.</p>
-    </div>
-    <div class="component secure-aggregation">
-      <h3>Secure Aggregation</h3>
-      <div class="key-points">
-        <ul>
-          <li>Utilizes Shamir’s Secret Sharing</li>
-          <li>Applies threshold cryptography</li>
-          <li>Protects individual client data during aggregation</li>
-          <li>Prevents data exposure through secure aggregation</li>
-        </ul>
-      </div>
-      <p>Utilize Shamir’s Secret Sharing and threshold cryptography to securely aggregate model updates from multiple clients. This ensures that no individual client’s data is exposed during the aggregation process.</p>
-    </div>
-    
-</section>
+    <section class="architecture">
+      <h3>System Architecture</h3>
+      <img src="../images/architecture1.png" alt="System Architecture" class="architecture-image">
+    </section>
 
+    <div class="component-list">
+      
+      <div class="component-row">
+        <div class="component-image">
+          <img src="../images/ADRM1.png" alt="Attack Detection and Resilience">
+        </div>
+        <div class="component-details">
+          <h3>Attack Detection & Resilience</h3>
+          <div class="key-points">
+            <ul>
+              <li>Detects poisoning and Byzantine attacks</li>
+              <li>Utilizes advanced anomaly detection</li>
+              <li>Prevents malicious model updates</li>
+              <li>Ensures federated learning robustness</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component-image">
+          <img src="../images/PPM1.png" alt="Privacy Preservation">
+        </div>
+        <div class="component-details">
+          <h3>Privacy Preservation</h3>
+          <div class="key-points">
+            <ul>
+              <li>Implements differential privacy</li>
+              <li>Utilizes homomorphic encryption</li>
+              <li>Conducts regular privacy audits</li>
+              <li>Ensures data protection during training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component-image">
+          <img src="../images/SAM.png" alt="Secure Aggregation">
+        </div>
+        <div class="component-details">
+          <h3>Secure Aggregation</h3>
+          <div class="key-points">
+            <ul>
+              <li>Utilizes Shamir’s Secret Sharing</li>
+              <li>Applies threshold cryptography</li>
+              <li>Protects individual client data</li>
+              <li>Prevents data exposure via aggregation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="component-row">
+        <div class="component-image">
+          <img src="../images/SCPM1.png" alt="Secure Communication Module Diagram">
+        </div>
+        <div class="component-details">
+          <h3>Secure Communication Module</h3>
+          <div class="key-points">
+            <ul>
+              <li>Uses TLS 1.3 for secure channels</li>
+              <li>Applies HMAC for message authentication</li>
+              <li>Ensures mutual client-server validation</li>
+              <li>Prevents eavesdropping and tampering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     </div>
-
-  </div>
-</section>
   </div>
 </body>
 </html>

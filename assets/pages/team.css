@@ -1,0 +1,224 @@
+/* --------------------------------------
+   TEAM.HTML SPECIFIC STYLES
+-------------------------------------- */
+
+:root {
+  --team-primary: #005f73;
+  --team-secondary: #0a9396;
+  --team-light-bg: #f8f9fa;
+  --team-dark-bg: #0d1b2a;
+  --team-dark-surface: #1b263b;
+  --team-light-text: #e0e1dd;
+  --team-dark-text: #001219;
+  --team-muted-text: #6c757d;
+  --team-radius: 12px;
+  --team-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  --team-shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    background-color: var(--team-dark-bg);
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.team-header h1 {
+  font-size: 2.5rem;
+  color: var(--team-dark-text);
+}
+
+.team-header p {
+  font-size: 1.1rem;
+  color: var(--team-muted-text);
+  max-width: 60ch;
+  margin: 0.5rem auto 0;
+}
+
+body.dark-mode .team-header h1 {
+    color: var(--team-light-text);
+}
+body.dark-mode .team-header p {
+    color: #94a3b8;
+}
+
+.team-section h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--team-primary);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.team-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--team-secondary);
+}
+
+body.dark-mode .team-section h2 {
+    color: var(--team-light-text);
+}
+body.dark-mode .team-section h2::after {
+    background-color: var(--team-secondary);
+}
+
+/* --- UNIFIED LAYOUT FOR ALL TEAM CARDS --- */
+
+/* Container for all cards, arranged in a single column */
+.team-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Styling for each individual card */
+.team-card {
+  background-color: #ffffff;
+  border-radius: var(--team-radius);
+  box-shadow: var(--team-shadow);
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Flexbox for the "text-left, image-right" layout */
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--team-shadow-hover);
+}
+
+body.dark-mode .team-card {
+  background-color: var(--team-dark-surface);
+  border-color: #525253;
+}
+
+/* Wrapper for all text content inside a card */
+.member-info {
+    flex-grow: 1; /* Allows text block to fill available space */
+}
+
+.member-photo {
+  width: 165px;
+  height: 165px;
+  object-fit: cover;
+  /* MODIFICATION: Use 50% for a perfect circle */
+  border-radius: 50%;
+  margin: 0;
+  flex-shrink: 0; /* Prevents image from shrinking */
+
+  /* NEW: Added a 4px solid border using your primary color variable */
+  border: 4px solid var(--team-primary);
+
+  /* NEW: Added a smooth transition for the border color on hover */
+  transition: border-color 0.3s ease;
+}
+
+/* Optional: Add a hover effect to change the border color */
+.team-card:hover .member-photo {
+    border-color: var(--team-secondary);
+}
+
+/* Dark mode border color adjustment */
+body.dark-mode .member-photo {
+    border-color: var(--team-secondary);
+}
+
+body.dark-mode .team-card:hover .member-photo {
+    border-color: var(--team-light-text);
+}
+
+.member-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--team-dark-text);
+  margin: 0 0 0.25rem 0;
+}
+
+.member-role {
+  color: var(--team-primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.member-contribution {
+    color: var(--team-muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+body.dark-mode .member-contribution {
+    color: #94a3b8;
+}
+
+body.dark-mode .member-name {
+    color: var(--team-light-text);
+}
+body.dark-mode .member-role {
+    color: var(--team-secondary);
+}
+
+.team-socials {
+  display: flex;
+  justify-content: flex-start; /* Aligns icons to the left */
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.social-link svg {
+  width: 100%;
+  height: 100%;
+  fill: #adb5bd;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover svg {
+  fill: var(--team-primary);
+  transform: scale(1.1);
+}
+
+body.dark-mode .social-link svg {
+    fill: #718096;
+}
+body.dark-mode .social-link:hover svg {
+    fill: var(--team-secondary);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+/* Stacks card content vertically on smaller screens */
+@media (max-width: 640px) {
+    .team-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-socials {
+        justify-content: center; /* Re-center icons when stacked */
+    }
+}
