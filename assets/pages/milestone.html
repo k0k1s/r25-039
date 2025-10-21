@@ -5,6 +5,184 @@
   <link rel="stylesheet" href="../styles/style.css" />
   <title>Milestones - FL Framework</title>
 
+  <style>
+    /* Professional Base Styles */
+    :root {
+      --color-primary: #004d99; 
+      --color-secondary: #6c757d;
+      --color-background: #f4f7f9; /* Lighter BG */
+      --color-card-background: #ffffff;
+      --color-text: #212529;
+      --color-border: #e9ecef;
+      --color-highlight: #007bff; /* Primary Blue */
+      --color-dark-text: #343a40;
+      --color-accent-border: #007bff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Dark Mode Theme */
+    body.dark-mode {
+      --color-primary: #4da6ff;
+      --color-secondary: #adb5bd;
+      --color-background: #1e272e;
+      --color-card-background: #2c3e50;
+      --color-text: #e9ecef;
+      --color-border: #343a40;
+      --color-highlight: #4da6ff;
+      --color-dark-text: #e9ecef;
+      --color-accent-border: #4da6ff;
+    }
+
+    /* --- General Layout --- */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: var(--color-card-background);
+      border-radius: 12px;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08); /* More refined shadow */
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--color-dark-text);
+      margin-bottom: 2rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* --- Table Styles --- */
+    .milestones-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 4rem;
+      font-size: 0.95rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden; 
+    }
+
+    .milestones-table thead tr {
+      background-color: var(--color-primary);
+      color: white;
+    }
+
+    .milestones-table th {
+      padding: 14px 18px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .milestones-table tbody tr {
+      border-bottom: 1px solid var(--color-border);
+      transition: background-color 0.2s;
+    }
+    
+    .milestones-table td {
+      padding: 12px 18px;
+      text-align: left;
+    }
+
+    .milestones-table td:first-child { 
+        font-weight: 600; 
+        color: var(--color-primary);
+        width: 30%;
+    }
+    
+    /* FIX: Custom class for guaranteed bolding/highlighting */
+    .highlight {
+        font-weight: 700 !important; /* Forces the bold font weight */
+        color: var(--color-dark-text);
+    }
+    
+    body.dark-mode .highlight {
+        color: var(--color-text);
+    }
+
+    /* --- TIMELINE REDESIGN (Card View) --- */
+    .timeline-container {
+        padding: 0 10px;
+    }
+    
+    .timeline {
+        display: grid;
+        /* Start with 3 columns, switch to 1 on mobile */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 20px;
+        counter-reset: milestone-counter; /* Initialize counter for numbering */
+    }
+    
+    .milestone-node {
+        background-color: var(--color-background);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--color-accent-border);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+    
+    body.dark-mode .milestone-node {
+        background-color: #34495e;
+        border-left-color: var(--color-highlight);
+    }
+
+    .milestone-node:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .milestone-node::before {
+        counter-increment: milestone-counter;
+        content: "Phase " counter(milestone-counter);
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 12px;
+        background-color: var(--color-accent-border);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        border-bottom-left-radius: 8px;
+    }
+    
+    .milestone-label {
+        margin-top: 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-dark-text);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    body.dark-mode .milestone-label {
+        color: var(--color-text);
+    }
+
+    /* Specific color coding for Start and End is no longer needed in this layout,
+       but we will keep the numbering clean. */
+    
+    @media (max-width: 768px) {
+      .timeline {
+          grid-template-columns: 1fr;
+      }
+      .container {
+          padding: 20px 15px;
+      }
+    }
+  </style>
+
   <script>
     function setTheme(theme) {
       if (theme === 'dark') {
@@ -26,60 +204,71 @@
 </head>
 <body>
   <section class="container">
-    <h2 style="text-align: center;">Project Milestones</h2>
+    <h2 style="text-align: center;">Project Milestones and Deliverables</h2>
 
     <table class="milestones-table">
       <thead>
         <tr>
           <th>Milestone</th>
           <th>Description</th>
-          <th>Marks Allocated</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Proposal</td>
-          <td>Proposal presentation and the proposal report submission.</td>
-          <td>12%</td>
+          <td>Proposal presentation and the formal <span class="highlight">proposal report submission</span> (Initial Plan).</td>
         </tr>
         <tr>
           <td>Progress Presentation 1</td>
-          <td>50% progress presentation of the research project.</td>
-          <td>15%</td>
+          <td><span class="highlight">50% progress presentation</span> of the research, including core literature review and initial framework design.</td>
         </tr>
         <tr>
           <td>Progress Presentation 2</td>
-          <td>90% progress presentation of the research project.</td>
-          <td>18%</td>
+          <td><span class="highlight">90% progress presentation</span>, demonstrating key framework functionalities and security features.</td>
         </tr>
         <tr>
           <td>Demonstration</td>
-          <td>Submission and presentation of the camera-ready research poster.</td>
-          <td>10%</td>
+          <td>Submission and presentation of the <span class="highlight">camera-ready research poster</span> and technical demonstration.</td>
         </tr>
         <tr>
           <td>Final Assessment</td>
-          <td>Submission of final reports and the final presentation of the research.</td>
-          <td>10%</td>
+          <td>Submission of the <span class="highlight">final research report</span> and the comprehensive final project presentation.</td>
         </tr>
         <tr>
           <td>Viva</td>
-          <td>Final viva of the research, commercialization video with user testing, and research team members.</td>
-          <td>10%</td>
+          <td>Final defense (<span class="highlight">viva</span>), commercialization video, and presentation of user testing results.</td>
         </tr>
       </tbody>
     </table>
 
+    <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Project Phases Overview</h2>
     <div class="timeline-container">
         <div class="timeline">
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Start</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Proposal</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Progress 1</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Progress 2</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Demo</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Final Report</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">Viva</div></div>
-          <div class="milestone-node"><div class="circle-dot"></div><div class="milestone-label">End</div></div>
+          <div class="milestone-node">
+            <div class="milestone-label">Proposal Accepting</div>
+          </div>
+          <div class="milestone-node">
+            <div class="milestone-label">Progress I Presentation </div>
+          </div>
+          <div class="milestone-node">
+            <div class="milestone-label">Progress II Presentaion </div>
+          </div>
+                    <div class="milestone-node">
+            <div class="milestone-label">Research Paper</div>
+          </div>
+                    <div class="milestone-node">
+            <div class="milestone-label">User Testing</div>
+          </div>
+        
+                    <div class="milestone-node">
+            <div class="milestone-label">Final Presentation</div>
+          </div>
+          <div class="milestone-node">
+            <div class="milestone-label">Final Report</div>
+          </div>
+          <div class="milestone-node">
+            <div class="milestone-label">Deliver to use</div>
+          </div>
         </div>
       </div>
       

@@ -4,6 +4,167 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../styles/style.css" />
   <title>Scope - FL Framework</title>
+  <style>
+    /* Professional Reset & Base */
+    :root {
+      --color-primary: #007bff; /* Deep Blue */
+      --color-secondary: #6c757d; /* Muted Grey */
+      --color-background-light: #ffffff;
+      --color-background-dark: #f8f9fa; /* Off-white Section Background */
+      --color-text-dark: #212529;
+      --color-text-light: #495057;
+      --shadow-light: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--color-background-dark);
+      color: var(--color-text-dark);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Dark Mode Theme */
+    body.dark-mode {
+      --color-primary: #4da6ff;
+      --color-secondary: #adb5bd;
+      --color-background-light: #2c3e50;
+      --color-background-dark: #1e272e;
+      --color-text-dark: #e9ecef;
+      --color-text-light: #ced4da;
+      --shadow-light: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+      --shadow-hover: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+    }
+
+    body.dark-mode .container {
+      background-color: var(--color-background-light);
+    }
+
+    body.dark-mode h2, body.dark-mode h3 {
+      color: var(--color-text-dark);
+    }
+
+    body.dark-mode .component {
+      background-color: #34495e;
+      box-shadow: var(--shadow-light);
+    }
+
+    body.dark-mode .component p {
+      color: var(--color-text-light);
+    }
+
+    /* Container and Headings */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      text-align: center;
+      background-color: var(--color-background-light);
+      border-radius: 8px;
+      box-shadow: var(--shadow-light);
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      color: var(--color-text-dark);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .container > p { /* Targeted description paragraph */
+      font-size: 1.125rem;
+      color: var(--color-text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+    }
+
+    /* Component Grid */
+    .component-blocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 3rem;
+    }
+
+    /* Component Card Style */
+    .component {
+      background-color: var(--color-background-light);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid #dee2e6; /* Subtle border */
+      border-left: 5px solid; /* Strong left accent */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.03); /* Lighter initial shadow */
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); /* Deeper shadow on hover */
+    }
+
+    .component h3 {
+      font-size: 1.3rem;
+      color: var(--color-text-dark);
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .component p {
+      font-size: 1rem;
+      color: var(--color-secondary);
+      margin-bottom: 0;
+      /* Ensure no default bolding for p content */
+      font-weight: 400; 
+    }
+
+    /* Accent Colors (Based on professional/technical palette) */
+    .privacy-preservation {
+      border-color: #28a745; /* Success Green */
+    }
+
+    .attack-defense {
+      border-color: #dc3545; /* Danger Red */
+    }
+
+    .secure-aggregation {
+      border-color: #ffc107; /* Warning Yellow */
+    }
+
+    .secure-c2 {
+      border-color: #007bff; /* Primary Blue */
+    }
+
+    .component:nth-child(5) {
+      border-color: #17a2b8 !important; /* Info Cyan (Adaptive Learning) */
+    }
+    
+    .component:nth-child(6) {
+      border-color: #6610f2 !important; /* Purple (Modular Design) */
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .component-blocks {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .container {
+        padding: 2rem 1rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+  </style>
   <script>
     function setTheme(theme) {
       if (theme === 'dark') {
@@ -24,36 +185,36 @@
   </script>
 </head>
 <body>
-  <section class="container" style="padding-top: 4rem; text-align: center;">
-      <h2 style="margin-bottom: 1rem;">Framework Scope & Features</h2>
+  <section class="container" style="text-align: center;">
+      <h2 style="margin-bottom: 1rem;">Framework Scope & Core Features</h2>
       <p style="max-width: 700px; margin: 0 auto 3rem auto;">
-        Our framework encompasses a modular design supporting key privacy and security features essential for modern Federated Learning applications.
+        Our framework encompasses a modular design supporting key privacy and security features essential for modern Federated Learning applications, ensuring robustness and adaptability.
       </p>
 
       <div class="component-blocks">
           <div class="component privacy-preservation">
             <h3>Privacy Preservation</h3>
-            <p>Techniques like differential privacy to protect data.</p>
+            <p>Implementation of established techniques, such as Differential Privacy, to protect sensitive client data during training.</p>
           </div>
           <div class="component attack-defense">
-            <h3>Attack Detection</h3>
-            <p>Identifying and mitigating malicious client updates.</p>
+            <h3>Attack Detection & Defense</h3>
+            <p>Advanced mechanisms for identifying and mitigating malicious or poisoned client updates to maintain model integrity.</p>
           </div>
           <div class="component secure-aggregation">
             <h3>Secure Aggregation</h3>
-            <p>Cryptographic methods to protect models during aggregation.</p>
+            <p>Utilizing cryptographic methods to ensure the model update process is secure, preventing any single entity from viewing individual contributions.</p>
           </div>
           <div class="component secure-c2">
-            <h3>Encryption Protocols</h3>
-            <p>End-to-end encryption for all communications.</p>
+            <h3>End-to-End Encryption</h3>
+            <p>Robust encryption protocols securing all communication channels between the server and participating clients.</p>
           </div>
-          <div class="component" style="border-color: #00b4d8;">
+          <div class="component" style="border-color: #17a2b8;">
             <h3>Adaptive Learning</h3>
-            <p>Models that adapt to new data and threats over time.</p>
+            <p>Models designed with dynamic capabilities to adapt to shifting data distributions and emerging security threats over time.</p>
           </div>
-          <div class="component" style="border-color: #0077b6;">
-            <h3>Modular Design</h3>
-            <p>Easily adaptable architecture for various use-cases.</p>
+          <div class="component" style="border-color: #6610f2;">
+            <h3>Modular Architecture</h3>
+            <p>A highly adaptable structure that allows for easy integration of new algorithms, hardware, and various use-case requirements.</p>
           </div>
       </div>
   </section>

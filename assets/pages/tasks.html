@@ -5,6 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Tasks - Data-Privacy Focused Federated Learning Framework</title>
   <link rel="stylesheet" href="../styles/style.css" />
+  <style>
+    /* Professional Base Styles */
+    :root {
+      --color-primary: #004d99; /* Deep Blue */
+      --color-secondary: #6c757d;
+      --color-background: #f4f7f9; /* Lighter BG */
+      --color-card-background: #ffffff;
+      --color-text: #212529;
+      --color-border: #e9ecef;
+      --color-dark-text: #343a40;
+      /* Status Colors */
+      --status-in-progress: #ffc107; /* Warning Yellow */
+      --status-pending: #6c757d; /* Muted Grey */
+      --status-completed: #28a745; /* Success Green */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Dark Mode Theme */
+    body.dark-mode {
+      --color-primary: #4da6ff;
+      --color-secondary: #adb5bd;
+      --color-background: #1e272e;
+      --color-card-background: #2c3e50;
+      --color-text: #ffffff;
+      --color-border: #343a40;
+      --color-dark-text: #ffffff;
+      /* Status Colors - adjusted for dark background */
+      --status-in-progress: #897000;
+      --status-pending: #adb5bd;
+      --status-completed: #005a15;
+    }
+    
+    body.dark-mode .tasks-table tbody tr:nth-child(even) {
+        background-color: #34495e;
+    }
+
+    /* --- Container & Headings --- */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: var(--color-card-background);
+      border-radius: 12px;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08); 
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--color-dark-text);
+      margin-bottom: 2rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* --- Table Styles --- */
+    .tasks-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden; 
+    }
+
+    .tasks-table thead tr {
+      background-color: var(--color-primary);
+      color: white;
+    }
+
+    .tasks-table th {
+      padding: 14px 18px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .tasks-table tbody tr {
+      border-bottom: 1px solid var(--color-border);
+      transition: background-color 0.2s;
+    }
+    
+    .tasks-table tbody tr:nth-child(even) {
+      background-color: var(--color-background);
+    }
+    
+    .tasks-table tbody tr:hover {
+      background-color: #e9ecef;
+    }
+
+    body.dark-mode .tasks-table tbody tr:hover {
+        background-color: #3e5163;
+    }
+    
+    .tasks-table td {
+      padding: 12px 18px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    
+    /* Highlight the main task column */
+    .tasks-table td:first-child {
+        font-weight: 600;
+        color: var(--color-dark-text);
+    }
+
+    /* Status Badge Styling */
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    /* Specific Status Styles */
+    .status-in-progress {
+      background-color: var(--status-in-progress);
+      color: var(--color-dark-text);
+      border: 1px solid var(--status-in-progress);
+    }
+
+    .status-pending {
+      background-color: transparent;
+      color: var(--status-pending);
+      border: 1px solid var(--status-pending);
+    }
+    
+    .status-completed {
+      background-color: var(--status-completed);
+      color: white;
+      border: 1px solid var(--status-completed);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+          padding: 20px 15px;
+      }
+      .tasks-table {
+          font-size: 0.85rem;
+      }
+      .tasks-table th, .tasks-table td {
+          padding: 10px 12px;
+      }
+    }
+  </style>
   <script>
     function setTheme(theme) {
       if (theme === 'dark') {
@@ -26,7 +183,7 @@
 </head>
 <body>
   <div class="container">
-    <h2 style="text-align: center;">Project Tasks</h2>
+    <h2>Project Task Breakdown</h2>
     <table class="tasks-table">
       <thead>
         <tr>
@@ -37,39 +194,44 @@
       </thead>
       <tbody>
         <tr>
-          <td>Federated Learning Simulation Environment</td>
+          <td>Federated Learning Simulation Setup</td>
           <td>Team</td>
-          <td>In Progress</td>
-        </tr>
+          <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
         <tr>
           <td>Attack Detection and Resilience Implementation</td>
           <td>Y.D.T.D Nanayakkara</td>
-          <td>In Progress</td>
+          <td><span class="status-badge status-in-progress">In Progress</span></td>
         </tr>
         <tr>
           <td>Privacy Preservation Techniques Implementation</td>
           <td>H.R.M Mendis</td>
-          <td>In Progress</td>
+          <td><span class="status-badge status-in-progress">In Progress</span></td>
         </tr>
         <tr>
           <td>Secure Aggregation Implementation</td>
           <td>K.M. Weerasinghe</td>
-          <td>In Progress</td>
+          <td><span class="status-badge status-in-progress">In Progress</span></td>
         </tr>
         <tr>
           <td>Secure Command, Control & Communication</td>
           <td>K.D.A.R.A Dissanayaka</td>
-          <td>In Progress</td>
+          <td><span class="status-badge status-in-progress">In Progress</span></td>
         </tr>
         <tr>
           <td>System Integration and End-to-End Testing</td>
           <td>All Members</td>
-          <td>Pending</td>
+          <td><span class="status-badge status-pending">Pending</span></td>
         </tr>
          <tr>
-          <td>Final Report and Documentation</td>
+          <td>Final Reports and Documentations</td>
           <td>All Members</td>
-          <td>Pending</td>
+          <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+        <tr>
+          <td>Initial Literature Review & Planning</td>
+          <td>Team Lead</td>
+          <td><span class="status-badge status-completed">Completed</span></td>
         </tr>
       </tbody>
     </table>

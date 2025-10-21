@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
@@ -68,19 +72,41 @@
         }
       }
     </script>
+    <style>
+
+        
+.flame-text {
+            /* Apply the NEW imported font */
+            font-family: 'Monofett', monospace;
+            font-size: 3em; /* Large size to see the font clearly */
+            
+            /* The fill color of the letters (White/Bright Yellow for the hottest part) */
+            color: #ffffff; 
+            
+            /* TEXT OUTLINE/BOUNDARY */
+            -webkit-text-stroke: 0.8px #000000; /* Orange-Red for the text boundary/stroke */
+            -webkit-text-fill-color: #00bedb;/* Ensures the fill color is bright white */
+            
+
+}
+
+    </style>
   </head>
   <body onload="applySavedTheme();">
     <header class="nav">
       <nav class="nav-panel">
         <img 
-          src="./assets/images/canopy.png" 
+          src="./assets/images/flame.png" 
           height="55px" 
-          alt="Canopy FL Logo" 
+          alt="FL Logo" 
           id="nav-logo"
           onclick="loadContent('./assets/pages/home.html')" 
         />
-
+      <div class="flame-text">
+              FLAME
+          </div>
         <div class="nav-links">
+          <button onclick="loadContent('./assets/pages/home.html')" >Home</button>
           <button onclick="loadContent('./assets/pages/about.html')">About</button>
           <button onclick="loadContent('./assets/pages/scope.html')">Scope</button>
           <button onclick="loadContent('./assets/pages/milestone.html')">Milestones</button>
@@ -112,9 +138,6 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
           <p>&copy; Research Project - 2025</p>
         </div>
       </div>
