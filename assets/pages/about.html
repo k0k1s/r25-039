@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="about.css">
 
-  <title>About - Data Privacy FL Framework</title>
+  <title>Architecture - Privacy-Preserving FL Framework</title>
   <script>
     function setTheme(theme) {
       if (theme === 'dark') {
@@ -29,31 +29,31 @@
 <body>
   <div class="container">
     <section class="about-header">
-      <h2>About Our System</h2>
+      <h2>Privacy-Enhanced Federated Learning Framework</h2>
       <p>
-        Our Federated Learning System Framework is designed to enhance the privacy, security, and resilience of machine learning models in distributed environments. By integrating four core components, this framework ensures the integrity of the learning process, protects sensitive data, and secures communication.
+        Our comprehensive Federated Learning (FL) System Framework is engineered to significantly augment the privacy, security, and operational resilience of machine learning models deployed in decentralized and distributed environments. The framework is composed of four interconnected core modules, collectively guaranteeing data integrity, defense against adversarial attacks, and authenticated inter-component communication.
       </p>
     </section>
 
     <section class="architecture">
-      <h3>System Architecture</h3>
-      <img src="../images/architecture1.png" alt="System Architecture" class="architecture-image">
+      <h3>Framework Overview and Architecture</h3>
+      <img src="../images/architecture1.png" alt="System Architecture Diagram" class="architecture-image">
     </section>
 
     <div class="component-list">
       
       <div class="component-row">
         <div class="component-image">
-          <img src="../images/ADRM1.png" alt="Attack Detection and Resilience">
+          <img src="../images/ADRM1.png" alt="Attack Detection and Resilience Module Diagram">
         </div>
         <div class="component-details">
-          <h3>Attack Detection & Resilience</h3>
+          <h3>Adversarial Defense and Resilience Module (ADRM)</h3>
           <div class="key-points">
             <ul>
-              <li>Detects poisoning and Byzantine attacks</li>
-              <li>Utilizes advanced anomaly detection</li>
-              <li>Prevents malicious model updates</li>
-              <li>Ensures federated learning robustness</li>
+              <li><strong>Mitigation of Adversarial Attacks:</strong> Detects and mitigates model poisoning and Byzantine attacks.</li>
+              <li><strong>Anomaly-Based Detection:</strong> Employs advanced statistical anomaly detection methods on shared gradients.</li>
+              <li><strong>Validation of Updates:</strong> Enforces rigorous VALIDATION CHECKS on incoming model updates to ensure integrity.</li>
+              <li><strong>Robustness Assurance:</strong> Maintains the operational ROBUSTNESS and reliability of the federated model.</li>
             </ul>
           </div>
         </div>
@@ -61,16 +61,16 @@
 
       <div class="component-row">
         <div class="component-image">
-          <img src="../images/PPM1.png" alt="Privacy Preservation">
+          <img src="../images/PPM1.png" alt="Privacy Preservation Module Diagram">
         </div>
         <div class="component-details">
-          <h3>Privacy Preservation</h3>
+          <h3>Privacy Preservation Module (PPM)</h3>
           <div class="key-points">
             <ul>
-              <li>Implements differential privacy</li>
-              <li>Utilizes homomorphic encryption</li>
-              <li>Conducts regular privacy audits</li>
-              <li>Ensures data protection during training</li>
+              <li><strong>Differential Privacy (DP) Integration:</strong> Applies CALIBRATED NOISE to model parameters to prevent data leakage from gradients.</li>
+              <li><strong>Homomorphic Encryption (HE) Implementation:</strong> Utilizes HE for SECURE COMPUTATIONS over encrypted data, where feasible.</li>
+              <li><strong>Proactive Auditing:</strong> Conducts regular, systematic PRIVACY AUDITS to verify compliance and effectiveness.</li>
+              <li><strong>Data Obfuscation Guarantee:</strong> Ensures client-side data remains NON-IDENTIFIABLE throughout the training lifecycle.</li>
             </ul>
           </div>
         </div>
@@ -78,16 +78,16 @@
 
       <div class="component-row">
         <div class="component-image">
-          <img src="../images/SAM.png" alt="Secure Aggregation">
+          <img src="../images/SAM.png" alt="Secure Aggregation Module Diagram">
         </div>
         <div class="component-details">
-          <h3>Secure Aggregation</h3>
+          <h3>Secure Aggregation Module (SAM)</h3>
           <div class="key-points">
             <ul>
-              <li>Utilizes Shamir’s Secret Sharing</li>
-              <li>Applies threshold cryptography</li>
-              <li>Protects individual client data</li>
-              <li>Prevents data exposure via aggregation</li>
+              <li><strong>Cryptographic Secret Sharing:</strong> Implements Shamir’s Secret Sharing for key distribution and RECONSTRUCTION.</li>
+              <li><strong>Threshold Cryptography:</strong> Leverages threshold techniques to ensure secure, PRIVATE MODEL AGGREGATION.</li>
+              <li><strong>Individual Contribution Protection:</strong> Guarantees that the central server cannot decrypt INDIVIDUAL CLIENT contributions.</li>
+              <li><strong>Evasion of Data Inference:</strong> Completely prevents data inference attacks targeting the AGGREGATION PROCESS.</li>
             </ul>
           </div>
         </div>
@@ -98,13 +98,13 @@
           <img src="../images/SCPM1.png" alt="Secure Communication Module Diagram">
         </div>
         <div class="component-details">
-          <h3>Secure Communication Module</h3>
+          <h3>Secure Communication Protocol Module (SCPM)</h3>
           <div class="key-points">
             <ul>
-              <li>Uses TLS 1.3 for secure channels</li>
-              <li>Applies HMAC for message authentication</li>
-              <li>Ensures mutual client-server validation</li>
-              <li>Prevents eavesdropping and tampering</li>
+              <li><strong>Secure Channel Establishment:</strong> Utilizes TLS 1.3 for END-TO-END ENCRYPTED and authenticated communication channels.</li>
+              <li><strong>Message Integrity:</strong> Applies Hash-based Message Authentication Codes (HMAC) to guarantee DATA INTEGRITY during transit.</li>
+              <li><strong>Mutual Authentication:</strong> Enforces MUTUAL CLIENT-SERVER VALIDATION using digital certificates.</li>
+              <li><strong>Mitigation of MITM Attacks:</strong> Effectively prevents network eavesdropping and MAN-IN-THE-MIDDLE (MITM) tampering.</li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,6 @@
 /*
 ======================================================
-   ABOUT PAGE STYLES
+   ABOUT PAGE STYLES (Professional and Formal)
 ======================================================
 */
 
@@ -8,14 +8,14 @@
    GLOBAL VARIABLES & BASE STYLES
 -------------------------------------- */
 :root {
-  --primary-color: #005f73;
-  --secondary-color: #0a9396;
+  --primary-color: #005f73; /* Deep Teal/Cyan for accents */
+  --secondary-color: #0a9396; /* Lighter Teal for highlights/icons */
   --light-bg: #ffffff;
   --light-surface: #f8f9fa;
-  --dark-bg: #0d1b2a;
-  --dark-surface: #1b263b;
-  --light-text: #e0e1dd;
-  --dark-text: #001219;
+  --dark-bg: #0d1b2a; /* Deep Navy */
+  --dark-surface: #1b263b; /* Slightly Lighter Navy */
+  --light-text: #e0e1dd; /* Off-White for dark mode text */
+  --dark-text: #001219; /* Very Dark Text */
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Lato', sans-serif;
 }
@@ -25,6 +25,7 @@ body {
   background-color: var(--light-bg);
   color: var(--dark-text);
   line-height: 1.7;
+  transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
 }
 
 body.dark-mode {
@@ -36,6 +37,7 @@ h1, h2, h3, h4 {
     font-family: var(--font-heading, sans-serif);
     font-weight: 700;
     color: var(--dark-text);
+    transition: color 0.3s;
 }
 
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
@@ -56,12 +58,12 @@ body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
     margin-bottom: 4rem;
 }
 .about-header h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem; /* Adjusted for formal look */
     margin-bottom: 1rem;
 }
 .about-header p {
-    font-size: 1.1rem;
-    max-width: 70ch;
+    font-size: 1.05rem;
+    max-width: 80ch;
     margin: 0 auto;
     color: #6c757d;
 }
@@ -74,20 +76,21 @@ body.dark-mode .about-header p {
   margin-bottom: 6rem;
 }
 .architecture h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 .architecture-image {
   max-width: 100%;
   width: 900px;
   border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 body.dark-mode .architecture-image {
-    border-color: #334155;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* --------------------------------------
-   NEW COMPONENT ROW LAYOUT
+   COMPONENT ROW LAYOUT
 -------------------------------------- */
 .component-list {
     display: flex;
@@ -97,25 +100,36 @@ body.dark-mode .architecture-image {
 
 .component-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: 1.5fr 2fr; /* Slightly smaller image column */
+    gap: 4rem;
     align-items: center;
+    padding: 2rem 0;
 }
 
-/* Alternating layout: Image on the right for even-numbered rows */
+/* Alternating layout: Subtle background for alternating rows */
+.component-row:nth-child(even) {
+    background-color: var(--light-surface); 
+    padding: 3rem 1.5rem;
+    margin: 0 -1.5rem; /* Extend background to container edges */
+}
+body.dark-mode .component-row:nth-child(even) {
+    background-color: var(--dark-surface);
+}
+
 .component-row:nth-child(even) .component-image {
     order: 2;
 }
 
 .component-image img {
     width: 100%;
-    border-radius: 10px;
-        object-fit: cover;
+    max-height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
 }
 
 .component-details h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
 }
 body.dark-mode .component-details h3 {
@@ -130,42 +144,61 @@ body.dark-mode .component-details h3 {
 .key-points li {
   position: relative;
   padding-left: 30px;
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.key-points li strong {
+    font-weight: 700;
 }
 
 .key-points li::before {
-  content: '✔';
+  content: '✓'; 
   position: absolute;
   left: 0;
   top: 0;
   color: var(--secondary-color);
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.2rem;
 }
 body.dark-mode .key-points li {
-    color: #adb5bd;
+    color: var(--light-text);
 }
 
 /* --------------------------------------
    RESPONSIVE DESIGN
 -------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .component-row {
-        grid-template-columns: 1fr; /* Stack columns on mobile */
+        grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
         gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .component-row:nth-child(even) {
+        padding: 2rem 1.5rem;
+        margin: 0; /* Remove negative margin on stack */
     }
 
     .component-row:nth-child(even) .component-image {
         order: -1; /* Image always on top on mobile */
     }
 
+    .component-image img {
+        max-height: 100%;
+    }
+
     .component-details {
-        text-align: center;
+        text-align: left;
     }
 
     .key-points ul {
-        display: inline-block;
         text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-header h2 {
+        font-size: 2rem;
     }
 }

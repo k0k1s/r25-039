@@ -73,13 +73,25 @@
     <main class="page-wrapper">
         <section id="introduction" class="section-container intro-section">
             <div class="intro-graphic">
-                 <img src="../images/architecture1.png" alt="Diagram showing a central server connected to multiple IoT devices, illustrating the decentralized federated learning architecture.">
+                 <img src="../images/fl.png" alt="Diagram showing a central server connected to multiple IoT devices, illustrating the decentralized federated learning architecture.">
             </div>
             <div class="intro-text">
-                <h2 class="section-title">The Importance of Privacy in Data Processing</h2>
-                <p>
-                    Federated Learning revolutionizes machine learning by bringing the model to the data, not the other way around. This decentralized approach is critical for privacy, as raw data never leaves its source device. Our framework builds on this foundation by adding robust layers of security, creating a trusted environment for collaborative model training in sensitive domains like the IIoT.
-                </p>
+<h2 class="section-title">Why Privacy-Enhanced Federated Learning Framework is needed ?</h2>
+
+<p>
+
+    Federated Learning revolutionizes machine learning by bringing the model to the data, not the other way around. This decentralized approach is critical for privacy, as raw data never leaves its source device. Our framework builds on this foundation by adding robust layers of security, creating a trusted environment for collaborative model training in sensitive domains like the IIoT.
+
+</p>
+
+
+<h3 class="subsection-title">Core Privacy Enhancements</h3>
+
+<p>
+
+    Specifically, our implementation integrates several state-of-the-art privacy-preserving technologies to mitigate risks associated with model updates and gradient sharing. These mechanisms include Differential Privacy (DP), which injects controlled noise into shared model parameters to prevent inference attacks, and Secure Aggregation (SA), which utilizes cryptographic techniques to ensure the server can only see the combined, encrypted aggregate of all local model updates, and never individual contributions. This dual-layered approach guarantees that privacy is maintained both at the level of the individual data point and during the aggregation of the global model.
+
+</p>
             </div>
         </section>
 
@@ -117,7 +129,7 @@
         <hr/>
 
         <section id="how-it-works" class="section-container">
-            <h2 class="section-title text-center">How It Works</h2>
+            <h2 class="section-title text-center">How it Works</h2>
             <p class="section-subtitle text-center">A step-by-step guide to deploying our privacy-preserving FL system.</p>
             <div class="timeline">
                 <div class="timeline-item">
@@ -191,37 +203,56 @@
         <section id="next-steps" class="section-container">
             <h2 class="section-title text-center">Explore More</h2>
             <div class="cta-container">
-                <div class="cta-card">
-                    <h3>Read the Docs</h3>
-                    <p>Dive deep into our research, architecture, and implementation details.</p>
-                    <button class="cta-button" onclick="window.open('https://k0k1s.github.io/r25-039', '_blank')">
-                        Visit Documentation
-                    </button>
-                </div>
+
                 <div class="cta-card">
                     <h3>View on GitHub</h3>
                     <p>Explore the source code, contribute to the project, or raise an issue.</p>
                     <button class="cta-button" onclick="window.open('https://github.com/RavinduMendis/R25-039', '_blank')" 
-                            style="background-color: #CC0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                            style="background-color: #740000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                         <img src="../images/star.png" alt="Star" style="height: 1em; vertical-align: middle; margin-right: 8px;">
                         Go to GitHub
                     </button>
                 </div>
-                <div class="cta-card">
-                    <h3>Share Your Feedback</h3>
-                    <p>Your suggestions and insights are valuable. Let us know what you think!</p>
-                    <button id="showFormBtn" class="cta-button">Submit Feedback</button>
-                </div>
-            </div>
+<div class="cta-card">
+    <h3>Provide Feedback</h3>
+    <p>Share your experience, suggest improvements, or report a bug.</p>
+    <button id="feedbackToggleButton" class="cta-button" onclick="toggleFeedbackForm()"
+            style="background-color: #004a6e; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+        <img src="../images/star.png" alt="Star" style="height: 1em; vertical-align: middle; margin-right: 8px;">
+        Open Feedback Form
+    </button>
+</div>
+<div id="feedbackFormContainer" class="feedback-form-container" style="display: none; margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfQSwq9XJ6Md5llRIclTbOudjjF2nDSolx5ycHgfBAIIjpdXw/viewform?embedded=true"
+        width="100%"
+        height="600"
+        frameborder="0"
+        title="Feedback Form">
+        Loading…
+    </iframe>
+</div>
+<script>
+    /**
+     * Toggles the visibility of the feedback form container and updates the button text/style.
+     */
+    function toggleFeedbackForm() {
+        var formContainer = document.getElementById('feedbackFormContainer');
+        var button = document.getElementById('feedbackToggleButton');
 
-            <div id="feedbackFormContainer" class="feedback-form-container" style="display: none;">
-                <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSfQSwq9XJ6Md5llRIclTbOudjjF2nDSolx5ycHgfBAIIjpdXw/viewform?usp=header"
-                    width="100%"
-                    height="600"
-                    frameborder="0"
-                    title="Feedback Form">Loading…</iframe>
-            </div>
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            // Show the form
+            formContainer.style.display = 'block';
+            button.innerHTML = '<img src="../images/star.png" alt="Star" style="height: 1em; vertical-align: middle; margin-right: 8px;"> Close Form';
+            button.style.backgroundColor = '#CC0000'; // Change to red when open
+        } else {
+            // Hide the form
+            formContainer.style.display = 'none';
+            button.innerHTML = '<img src="../images/star.png" alt="Star" style="height: 1em; vertical-align: middle; margin-right: 8px;"> Open Feedback Form';
+            button.style.backgroundColor = '#007bff'; // Change to blue when closed
+        }
+    }
+</script>   
         </section>
 
 
