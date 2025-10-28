@@ -40,7 +40,7 @@
                 'Proposal Presentation': '../documents/PP - Data-Privacy Focused Federated Learning Framework for Industrial IoT.pdf',
                 'Progress Presentation I': '../documents/Progress_Presentation 1.pdf',
                 'Progress Presentation II': '../documents/Progress_Presentation 2.pdf',
-                'Final Presentation': '../documents/Final_Presentation.pdf'
+                'Final Presentation': '../documents/R25-039_Final_Presentation.pdf'
             };
 
             var container = document.getElementById(containerId);
@@ -102,7 +102,13 @@
 
         <div class="document-category">
             <h2>Research Logbook</h2>
-            <button class="custom-button red-button" onclick="loadPDF('Research Logbook', 'ResearchLogbookContainer')">View Research Logbook</button>
+            <button class="custom-button red-button" onclick="loadPDF('Research Logbook', 'ResearchLogbookContainer')">View ADRM Research Logbook </button>
+            <div id="ResearchLogbookContainer"></div>
+                        <button class="custom-button red-button" onclick="loadPDF('Research Logbook', 'ResearchLogbookContainer')">View PPM Research Logbook</button>
+            <div id="ResearchLogbookContainer"></div>
+                        <button class="custom-button red-button" onclick="loadPDF('Research Logbook', 'ResearchLogbookContainer')">View SAM Research Logbook</button>
+            <div id="ResearchLogbookContainer"></div>
+                        <button class="custom-button red-button" onclick="loadPDF('Research Logbook', 'ResearchLogbookContainer')">View SCPM Research Logbook</button>
             <div id="ResearchLogbookContainer"></div>
 
                         <button class="custom-button red-button" onclick="loadPDF('Research Logbook', 'ResearchLogbookContainer')">View Research Paper</button>
@@ -112,6 +118,8 @@
         <div class="document-category">
             <h2>Status Documents</h2>
             <button class="custom-button red-button" onclick="loadPDF('Status Document I', 'StatusDocumentIContainer')">View Checklist Document I</button>
+            <div id="StatusDocumentIContainer"></div>
+                        <button class="custom-button red-button" onclick="loadPDF('Status Document I', 'StatusDocumentIContainer')">View Checklist Document I</button>
             <div id="StatusDocumentIContainer"></div>
 
             <button class="custom-button red-button" onclick="loadPDF('Status Document II', 'StatusDocumentIIContainer')">View Checklist Document II</button>
@@ -152,7 +160,7 @@
 
         <div class="document-category">
             <h2>Final Presentation</h2>
-            <button class="custom-button red-button" onclick="loadPDF('Final Presentation', 'FinalPresentationContainer')">View Final Presentation - Finished</button>
+            <button class="custom-button blue-button" onclick="loadPDF('Final Presentation', 'FinalPresentationContainer')">View Final Presentation - Finished</button>
             <div id="FinalPresentationContainer"></div>
         </div>
     </div>
